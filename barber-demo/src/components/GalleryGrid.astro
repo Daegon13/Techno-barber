@@ -1,0 +1,11 @@
+---
+import barber from '@data/business';
+const { limit = barber.galeria.length } = Astro.props;
+---
+{barber.galeria.length > 0 ? <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+  {barber.galeria.slice(0, limit).map(item => <figure class="overflow-hidden rounded-2xl border border-white/10">
+    <img src={item.imagen} alt={item.alt} class="aspect-square w-full object-cover" loading="lazy" />
+    <figcaption class="p-4"><a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" class="underline">Ver publicación original</a></figcaption>
+  </figure>)}
+</div> : <p class="text-base text-zinc-300">Encontrá las publicaciones de Techno Barber en su perfil de Instagram.</p>}
+<a href={barber.instagram} target="_blank" rel="noopener noreferrer" class="mt-5 inline-block rounded-xl border border-white/20 px-5 py-3">Ver trabajos en Instagram</a>

@@ -1,0 +1,26 @@
+{
+  "nombre": "Techno Barber",
+  "ciudad": "Montevideo",
+  "direccion": "Av. 18 de Julio 959, local 4, Centro",
+  "telefono": "097 097 636",
+  "whatsapp": "59897097636",
+  "instagram": "https://www.instagram.com/techno.barber/",
+  "maps": "https://www.waze.com/es/live-map/directions/uy/departamento-de-montevideo/montevideo/techno-barber?to=place.ChIJT85VRYWBn5UReQvNm_PixUs",
+  "horarios": null,
+  "media": {},
+  "branding": {},
+  "galeria": [],
+  "barberos": [],
+  "testimonios": [],
+  "servicios": [
+    {
+      "id": "corte",
+      "nombre": "Corte",
+      "descripcion": "Consultá disponibilidad para tu próximo corte.",
+      "precio": null,
+      "duracion": null,
+      "destacado": true
+    }
+  ],
+  "demo": true
+}

@@ -1,0 +1,14 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import ServiceCard from '@components/ServiceCard.astro';
+import barber from '@data/business';
+import { buildWhatsAppLink } from '@lib/whatsapp';
+const query = buildWhatsAppLink(barber.whatsapp, 'Hola, quisiera consultar qué servicios ofrecen en Techno Barber y sus precios actuales.');
+---
+<BaseLayout title="Servicios — Techno Barber · Demo conceptual" description="Consultá servicios y disponibilidad. Propuesta conceptual independiente para Techno Barber.">
+  <section class="py-10">
+    <h1 class="text-3xl font-semibold">Servicios</h1>
+    <div class="mt-6 grid md:grid-cols-2 gap-4">{barber.servicios.map(s => <ServiceCard service={s} brand={barber.nombre} whatsapp={barber.whatsapp} />)}</div>
+    <a href={query} target="_blank" rel="noopener noreferrer" class="mt-6 inline-block underline underline-offset-4">Consultar otros servicios y precios</a>
+  </section>
+</BaseLayout>

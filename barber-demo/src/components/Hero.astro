@@ -1,0 +1,25 @@
+---
+import barber from '@data/business';
+import { buildWhatsAppLink, buildBookingMessage } from '@lib/whatsapp';
+const { nombre, ciudad, media } = barber;
+const wa = buildWhatsAppLink(barber.whatsapp, buildBookingMessage(nombre));
+---
+<section class="relative isolate overflow-hidden rounded-3xl border border-white/10 bg-white/5 shadow-soft">
+  {media.heroDesktop && <picture class="absolute inset-0 -z-10">
+    {media.heroMobile && <source media="(max-width: 768px)" srcset={media.heroMobile} />}
+    <img src={media.heroDesktop} alt="" class="h-full w-full object-cover" fetchpriority="high" />
+  </picture>}
+  <div aria-hidden="true" class="absolute inset-0 bg-black/60"></div>
+  <div class="relative px-6 py-14 sm:px-10 sm:py-20">
+    <div class="max-w-xl">
+      <p class="text-sm text-zinc-300">Centro de {ciudad}</p>
+      <h1 class="mt-4 text-4xl sm:text-6xl font-semibold tracking-tight">{nombre}</h1>
+      <p class="mt-5 text-base text-zinc-200">Coordiná tu próximo corte por WhatsApp.</p>
+      <p class="mt-2 text-sm text-zinc-300">18 de Julio 959 · Local 4</p>
+      <div class="mt-7 flex flex-col sm:flex-row gap-3">
+        <a href={wa} target="_blank" rel="noopener noreferrer" class="rounded-xl bg-cyanA-500 px-5 py-4 text-center font-semibold text-ink-950">Reservar turno</a>
+        <a href="/servicios" class="rounded-xl border border-white/20 px-5 py-4 text-center font-semibold">Ver servicios</a>
+      </div>
+    </div>
+  </div>
+</section>

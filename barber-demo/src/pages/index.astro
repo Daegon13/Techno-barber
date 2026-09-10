@@ -1,0 +1,32 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Hero from '@components/Hero.astro';
+import Section from '@components/Section.astro';
+import BarbersSection from '@components/BarbersSection.astro';
+import ServiceCard from '@components/ServiceCard.astro';
+import Testimonials from '@components/Testimonials.astro';
+import GalleryGrid from '@components/GalleryGrid.astro';
+import LocationSection from '@components/LocationSection.astro';
+import barber from '@data/business';
+import { buildWhatsAppLink, buildBookingMessage } from '@lib/whatsapp';
+const wa = buildWhatsAppLink(barber.whatsapp, buildBookingMessage(barber.nombre));
+const featured = barber.servicios.filter(s => s.destacado).slice(0, 4);
+---
+<BaseLayout title="Techno Barber — propuesta conceptual" description="Propuesta independiente de una web para consultar servicios y coordinar turnos con Techno Barber, Centro de Montevideo.">
+  <Hero />
+  <Section title="Servicios">
+    <div class="grid md:grid-cols-2 gap-4">{featured.map(s => <ServiceCard service={s} brand={barber.nombre} whatsapp={barber.whatsapp} />)}</div>
+  </Section>
+  <Section title="Trabajos"><GalleryGrid limit={6} /></Section>
+  <Section title="Conocé Techno Barber">
+    <p class="text-base text-zinc-300">Encontranos en 18 de Julio 959, local 4. También podés visitar nuestro perfil de Instagram antes de coordinar tu turno.</p>
+  </Section>
+  {barber.testimonios.length > 0 && <Section title="Reseñas"><Testimonials items={barber.testimonios} /></Section>}
+  {barber.barberos.length > 0 && <BarbersSection barberos={barber.barberos} />}
+  <Section title="Ubicación"><LocationSection /></Section>
+  <section class="mt-6 rounded-3xl border border-white/10 bg-white/5 p-6 sm:p-8">
+    <h2 class="text-2xl font-semibold">Coordiná tu próximo turno</h2>
+    <p class="mt-3 text-base text-zinc-300">Consultá disponibilidad por WhatsApp. El local te confirma el turno.</p>
+    <a href={wa} target="_blank" rel="noopener noreferrer" class="mt-5 inline-block rounded-xl bg-cyanA-500 px-5 py-4 font-semibold text-ink-950">Reservar turno</a>
+  </section>
+</BaseLayout>

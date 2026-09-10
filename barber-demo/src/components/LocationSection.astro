@@ -1,0 +1,15 @@
+---
+import barber from '@data/business';
+---
+<div class="rounded-2xl border border-white/10 bg-white/5 overflow-hidden">
+  {barber.media.location && <img src={barber.media.location} alt="Acceso a Techno Barber" class="h-64 w-full object-cover" loading="lazy" />}
+  <div class="p-6">
+    <p class="text-lg font-semibold">{barber.direccion}</p>
+    <p class="mt-2 text-base text-zinc-300">{barber.ciudad}</p>
+    {barber.horarios && <ul class="mt-4">{barber.horarios.map(h => <li>{h.dia}: {h.abre}–{h.cierra}</li>)}</ul>}
+    <div class="mt-5 flex flex-wrap gap-4">
+      <a href={barber.maps} target="_blank" rel="noopener noreferrer" class="underline underline-offset-4">Cómo llegar</a>
+      <a href={`tel:+${barber.whatsapp}`} class="underline underline-offset-4">{barber.telefono}</a>
+    </div>
+  </div>
+</div>
