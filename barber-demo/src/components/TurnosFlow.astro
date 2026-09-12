@@ -3,30 +3,17 @@ import barber from '@data/business';
 import { buildWhatsAppLink, buildBookingMessage } from '@lib/whatsapp';
 const href = buildWhatsAppLink(barber.whatsapp, buildBookingMessage(barber.nombre));
 ---
-<section id="turnosConfig" data-brand={barber.nombre} data-whatsapp={barber.whatsapp} class="rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6 shadow-soft">
-  <h1 class="text-3xl font-semibold">Reservar turno</h1>
-  <p class="mt-3 text-base text-zinc-300">Consultá disponibilidad directamente o agregá tus preferencias al mensaje.</p>
-  <form id="bookingPreferences" class="mt-6 grid gap-5" aria-label="Preferencias de turno">
-    <label class="grid gap-2">Servicio
-      <select id="bookingService" class="rounded-xl border border-white/20 bg-ink-900 p-3">
-        <option value="">Consultar al local</option>
-        {barber.servicios.map(s => <option value={s.id} data-name={s.nombre}>{s.nombre}</option>)}
-      </select>
-    </label>
-    <label class="grid gap-2">Fecha preferida (opcional)
-      <input id="bookingDate" type="date" class="rounded-xl border border-white/20 bg-ink-900 p-3" />
-    </label>
-    <label class="grid gap-2">Franja preferida (opcional)
-      <select id="bookingPeriod" class="rounded-xl border border-white/20 bg-ink-900 p-3">
-        <option value="">Sin preferencia</option><option value="mañana">Mañana</option><option value="tarde">Tarde</option>
-      </select>
-    </label>
-    <p id="bookingError" role="status" class="text-amber-200"></p>
-  </form>
-  <p id="previewMsg" class="mt-5 text-base text-zinc-300" aria-live="polite">{buildBookingMessage(barber.nombre)}</p>
-  <a id="waCta" href={href} target="_blank" rel="noopener noreferrer" class="mt-5 inline-block rounded-xl bg-cyanA-500 px-5 py-4 text-center font-semibold text-ink-950">Reservar turno</a>
-  <p class="mt-4 text-sm text-zinc-300">Las preferencias no indican disponibilidad. El turno queda confirmado cuando te responde el local.</p>
+<section id="turnosConfig" data-brand={barber.nombre} data-whatsapp={barber.whatsapp} class="grid overflow-hidden bg-[#111417] lg:grid-cols-[.9fr_1.1fr]">
+  <div class="border-b border-white/10 p-6 sm:p-10 lg:border-b-0 lg:border-r"><p class="eyebrow">Consulta directa</p><h1 class="mt-4 text-4xl leading-[.95] tracking-[-.04em] sm:text-6xl">Reservar<br/>turno</h1><p class="mt-6 max-w-sm leading-relaxed text-zinc-400">Podés abrir WhatsApp ahora o sumar una preferencia. No necesitás completar ningún campo.</p></div>
+  <div class="p-6 sm:p-10">
+    <form id="bookingPreferences" class="grid gap-5" aria-label="Preferencias de turno">
+      <label class="grid gap-2 text-sm font-semibold">Servicio <select id="bookingService" class="min-h-12 rounded border border-white/20 bg-[#090b0d] p-3 font-normal"><option value="">Consulta general</option>{barber.servicios.map(s => <option value={s.id} data-name={s.nombre}>{s.nombre}</option>)}</select></label>
+      <div class="grid gap-5 sm:grid-cols-2"><label class="grid gap-2 text-sm font-semibold">Fecha <span class="sr-only">opcional</span><input id="bookingDate" type="date" class="min-h-12 rounded border border-white/20 bg-[#090b0d] p-3 font-normal" /></label><label class="grid gap-2 text-sm font-semibold">Franja <span class="sr-only">opcional</span><select id="bookingPeriod" class="min-h-12 rounded border border-white/20 bg-[#090b0d] p-3 font-normal"><option value="">Sin preferencia</option><option value="mañana">Mañana</option><option value="tarde">Tarde</option></select></label></div>
+      <p class="-mt-2 text-xs text-zinc-500">La fecha y la franja son opcionales.</p><p id="bookingError" role="status" class="text-sm text-amber-200"></p>
+    </form>
+    <div class="mt-6 border-l-2 border-zinc-600 pl-4"><p class="eyebrow">Tu mensaje</p><p id="previewMsg" class="mt-2 text-sm leading-relaxed text-zinc-300" aria-live="polite">{buildBookingMessage(barber.nombre)}</p></div>
+    <a id="waCta" href={href} target="_blank" rel="noopener noreferrer" class="button-primary mt-6 w-full">Abrir WhatsApp <span aria-hidden="true" class="ml-3">↗</span></a>
+    <p class="mt-4 text-xs leading-relaxed text-zinc-500">Abrir WhatsApp no envía el mensaje. El turno queda confirmado cuando te responde el local.</p>
+  </div>
 </section>
-<script>
-  import '../scripts/turnos';
-</script>
+<script>import '../scripts/turnos';</script>

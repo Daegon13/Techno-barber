@@ -3,9 +3,13 @@ import barber from '@data/business';
 const { limit = barber.galeria.length } = Astro.props;
 ---
 {barber.galeria.length > 0 ? <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-  {barber.galeria.slice(0, limit).map(item => <figure class="overflow-hidden rounded-2xl border border-white/10">
+  {barber.galeria.slice(0, limit).map(item => <figure class="overflow-hidden bg-zinc-900">
     <img src={item.imagen} alt={item.alt} class="aspect-square w-full object-cover" loading="lazy" />
-    <figcaption class="p-4"><a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" class="underline">Ver publicación original</a></figcaption>
+    <figcaption class="p-4 text-sm"><a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" class="underline underline-offset-4">Ver publicación original</a></figcaption>
   </figure>)}
-</div> : <p class="text-base text-zinc-300">Encontrá las publicaciones de Techno Barber en su perfil de Instagram.</p>}
-<a href={barber.instagram} target="_blank" rel="noopener noreferrer" class="mt-5 inline-block rounded-xl border border-white/20 px-5 py-3">Ver trabajos en Instagram</a>
+</div> : <div class="relative overflow-hidden bg-[#111417] px-6 py-10 sm:px-10 sm:py-14">
+  <span aria-hidden="true" class="display absolute -right-3 -top-5 text-[8rem] text-white/[.035] sm:text-[12rem]">IG</span>
+  <div class="relative max-w-2xl"><p class="eyebrow">Contenido del negocio</p><h3 class="display mt-4 text-3xl leading-tight sm:text-5xl">Mirá los trabajos publicados por Techno Barber.</h3>
+  <p class="mt-5 max-w-xl leading-relaxed text-zinc-400">Para ver cortes reales, visitá el perfil de Instagram del negocio. Esta propuesta no presenta imágenes conceptuales como resultados de clientes.</p>
+  <a href={barber.instagram} target="_blank" rel="noopener noreferrer" class="button-primary mt-7">Ver Instagram <span aria-hidden="true" class="ml-3">↗</span></a></div>
+</div>}

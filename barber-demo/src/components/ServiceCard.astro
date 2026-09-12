@@ -5,16 +5,22 @@ type Props = { service: Servicio; brand: string; whatsapp: string };
 const { service, brand, whatsapp } = Astro.props;
 const href = buildWhatsAppLink(whatsapp, buildBookingMessage(brand, service.nombre));
 ---
-<article class="rounded-2xl border border-white/10 bg-white/5 overflow-hidden shadow-soft">
-  {service.imagen && <img src={service.imagen} alt={service.alt ?? service.nombre} class="h-44 w-full object-cover" loading="lazy" />}
-  <div class="p-5">
-    <h3 class="text-xl font-semibold">{service.nombre}</h3>
-    <p class="mt-2 text-base text-zinc-300">{service.descripcion}</p>
+<article class="group overflow-hidden border-y border-white/15 bg-[#0d1012] md:grid md:grid-cols-[.7fr_1fr]">
+  {service.imagen ? <figure class="relative min-h-64 overflow-hidden">
+    <img src={service.imagen} alt={service.alt ?? service.nombre} class="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-[1.02]" loading="lazy" />
+    <figcaption class="absolute bottom-3 left-3 bg-black/75 px-2 py-1 text-xs text-zinc-300">Imagen ilustrativa</figcaption>
+  </figure> : <div aria-hidden="true" class="relative min-h-44 overflow-hidden bg-[linear-gradient(135deg,#1e2327,#090b0d_65%)]">
+    <span class="display absolute -bottom-7 -left-2 text-[9rem] leading-none text-white/[.04]">01</span><span class="absolute right-8 top-8 h-24 w-px rotate-45 bg-white/30"></span>
+  </div>}
+  <div class="flex flex-col justify-center p-6 sm:p-9">
+    <p class="eyebrow">Servicio disponible</p>
+    <h3 class="display mt-3 text-4xl tracking-[-.04em]">{service.nombre}</h3>
+    <p class="mt-4 text-zinc-400">{service.descripcion}</p>
     {service.precio != null && <p class="mt-3 font-semibold">{formatUYU(service.precio)}</p>}
-    {service.duracion != null && <p class="mt-1 text-sm text-zinc-300">{service.duracion} min</p>}
-    <div class="mt-5 flex flex-col sm:flex-row gap-3">
-      <a href={href} target="_blank" rel="noopener noreferrer" class="rounded-xl bg-cyanA-500 px-4 py-3 text-center font-semibold text-ink-950">Reservar turno</a>
-      <a href={`/turnos?servicio=${encodeURIComponent(service.id)}`} class="rounded-xl border border-white/20 px-4 py-3 text-center">Elegir preferencia</a>
+    {service.duracion != null && <p class="mt-1 text-sm text-zinc-400">{service.duracion} min</p>}
+    <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+      <a href={href} target="_blank" rel="noopener noreferrer" class="button-primary">Reservar turno</a>
+      <a href={`/turnos?servicio=${encodeURIComponent(service.id)}`} class="button-secondary">Agregar preferencia</a>
     </div>
   </div>
 </article>
