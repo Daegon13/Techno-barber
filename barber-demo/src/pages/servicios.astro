@@ -1,14 +1,9 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
-import ServiceCard from '@components/ServiceCard.astro';
-import barber from '@data/business';
-import { buildWhatsAppLink } from '@lib/whatsapp';
+import BaseLayout from '@layouts/BaseLayout.astro'; import ServiceCard from '@components/ServiceCard.astro'; import barber from '@data/business'; import { buildWhatsAppLink } from '@lib/whatsapp';
 const query = buildWhatsAppLink(barber.whatsapp, 'Hola, quisiera consultar qué servicios ofrecen en Techno Barber y sus precios actuales.');
 ---
 <BaseLayout title="Servicios — Techno Barber · Demo conceptual" description="Consultá servicios y disponibilidad. Propuesta conceptual independiente para Techno Barber.">
-  <section class="py-10">
-    <h1 class="text-3xl font-semibold">Servicios</h1>
-    <div class="mt-6 grid md:grid-cols-2 gap-4">{barber.servicios.map(s => <ServiceCard service={s} brand={barber.nombre} whatsapp={barber.whatsapp} />)}</div>
-    <a href={query} target="_blank" rel="noopener noreferrer" class="mt-6 inline-block underline underline-offset-4">Consultar otros servicios y precios</a>
-  </section>
+  <section class="pb-12 pt-14 sm:pt-20"><p class="eyebrow">Qué podés reservar</p><h1 class="mt-4 text-5xl leading-none tracking-[-.05em] sm:text-7xl">Servicios</h1><p class="mt-5 max-w-xl leading-relaxed text-zinc-400">Información prudente y al punto. Los precios y la disponibilidad se consultan directamente con el local.</p></section>
+  <div class="grid gap-5">{barber.servicios.map(s => <ServiceCard service={s} brand={barber.nombre} whatsapp={barber.whatsapp} />)}</div>
+  <aside class="my-10 flex flex-col justify-between gap-5 border-l-2 border-white/30 bg-white/[.04] p-6 sm:flex-row sm:items-center"><div><p class="font-semibold">¿Buscás otro servicio?</p><p class="mt-1 text-sm text-zinc-400">Preguntá por opciones y precios actuales.</p></div><a href={query} target="_blank" rel="noopener noreferrer" class="button-secondary shrink-0">Consultar por WhatsApp</a></aside>
 </BaseLayout>
