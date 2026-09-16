@@ -12,7 +12,7 @@ const links = [['/', 'Inicio'], ['/servicios', 'Servicios'], ['/galeria', 'Traba
       {links.map(([href, label]) => <a href={href} aria-current={currentPath === href ? 'page' : undefined} class:list={["text-sm font-medium text-zinc-400 transition hover:text-white", currentPath === href && "text-white"]}>{label}</a>)}
       <a href="/turnos" class="button-primary !min-h-0 !px-5 !py-2.5 text-sm">Reservar turno</a>
     </nav>
-    <details class="group relative md:hidden">
+    <details class="group relative md:hidden" id="mobileMenu">
       <summary class="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded border border-white/20" aria-label="Abrir menú"><span class="text-xl leading-none">☰</span></summary>
       <nav aria-label="Navegación móvil" class="absolute right-0 mt-3 grid w-64 gap-1 rounded border border-white/15 bg-[#101214] p-3 shadow-2xl">
         {links.map(([href, label]) => <a href={href} class="rounded px-4 py-3 text-base hover:bg-white/10">{label}</a>)}
@@ -21,3 +21,8 @@ const links = [['/', 'Inicio'], ['/servicios', 'Servicios'], ['/galeria', 'Traba
     </details>
   </div>
 </header>
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('#mobileMenu');
+  menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => menu.removeAttribute('open')));
+  document.addEventListener('click', event => { if (menu?.open && event.target instanceof Node && !menu.contains(event.target)) menu.removeAttribute('open'); });
+</script>

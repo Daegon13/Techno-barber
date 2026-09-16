@@ -7,9 +7,9 @@ const { limit = barber.galeria.length } = Astro.props;
     <img src={item.imagen} alt={item.alt} class="aspect-square w-full object-cover" loading="lazy" />
     <figcaption class="p-4 text-sm"><a href={item.sourceUrl} target="_blank" rel="noopener noreferrer" class="underline underline-offset-4">Ver publicación original</a></figcaption>
   </figure>)}
-</div> : <div class="relative overflow-hidden bg-[#111417] px-6 py-10 sm:px-10 sm:py-14">
-  <span aria-hidden="true" class="display absolute -right-3 -top-5 text-[8rem] text-white/[.035] sm:text-[12rem]">IG</span>
-  <div class="relative max-w-2xl"><p class="eyebrow">Contenido del negocio</p><h3 class="display mt-4 text-3xl leading-tight sm:text-5xl">Mirá los trabajos publicados por Techno Barber.</h3>
-  <p class="mt-5 max-w-xl leading-relaxed text-zinc-400">Para ver cortes reales, visitá el perfil de Instagram del negocio. Esta propuesta no presenta imágenes conceptuales como resultados de clientes.</p>
-  <a href={barber.instagram} target="_blank" rel="noopener noreferrer" class="button-primary mt-7">Ver Instagram <span aria-hidden="true" class="ml-3">↗</span></a></div>
+</div> : <div class="surface relative isolate overflow-hidden px-6 py-12 sm:px-12 sm:py-16">
+  <div aria-hidden="true" class="absolute -right-16 -top-24 h-80 w-80 rounded-full border-[4rem] border-white/[.035]"></div>
+  <div class="relative grid gap-10 md:grid-cols-[1fr_.7fr] md:items-end"><div><p class="eyebrow">@techno.barber</p><h3 class="display mt-4 max-w-3xl text-4xl leading-[.95] tracking-[-.045em] sm:text-6xl">Antes de reservar, mirá el trabajo.</h3>
+  <p class="mt-6 max-w-xl leading-relaxed text-zinc-300">El perfil público concentra los cortes publicados por el negocio.</p></div>
+  <div class="md:justify-self-end"><div aria-hidden="true" class="mb-5 flex items-center gap-3 text-zinc-500"><span class="grid h-12 w-12 place-items-center rounded-full border border-white/20 text-xl">◎</span><span class="h-px w-24 bg-gradient-to-r from-white/40 to-transparent"></span></div><a href={barber.instagram} target="_blank" rel="noopener noreferrer" class="button-primary w-full sm:w-auto">Ver trabajos en Instagram <span aria-hidden="true" class="ml-3">↗</span></a></div></div>
 </div>}

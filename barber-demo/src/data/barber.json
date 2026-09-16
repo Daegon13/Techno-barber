@@ -7,7 +7,11 @@
   "instagram": "https://www.instagram.com/techno.barber/",
   "maps": "https://www.waze.com/es/live-map/directions/uy/departamento-de-montevideo/montevideo/techno-barber?to=place.ChIJT85VRYWBn5UReQvNm_PixUs",
   "horarios": null,
-  "media": {},
+  "media": {
+    "heroDesktop": "/images/techno/hero-tools.webp",
+    "heroMobile": "/images/techno/hero-tools.webp",
+    "og": "/images/techno/og-techno-barber-concept.webp"
+  },
   "branding": {},
   "galeria": [],
   "barberos": [],
@@ -17,6 +21,8 @@
       "id": "corte",
       "nombre": "Corte",
       "descripcion": "Consultá disponibilidad para tu próximo corte.",
+      "imagen": "/images/techno/service-corte-illustrative.webp",
+      "alt": "Escena ilustrativa de un corte de cabello",
       "precio": null,
       "duracion": null,
       "destacado": true
