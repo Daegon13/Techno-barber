@@ -3,25 +3,25 @@ import barber from '@data/business';
 import { buildWhatsAppLink, buildBookingMessage } from '@lib/whatsapp';
 const wa = buildWhatsAppLink(barber.whatsapp, buildBookingMessage(barber.nombre));
 ---
-<section class="relative min-h-[35rem] overflow-hidden border-b border-white/15 sm:min-h-[42rem] lg:min-h-[45rem]">
+<section class="noise relative min-h-[calc(100svh-4.5rem)] overflow-hidden sm:min-h-[42rem] lg:min-h-[45rem]">
   {barber.media.heroDesktop ? <picture class="absolute inset-0">
     {barber.media.heroMobile && <source media="(max-width: 768px)" srcset={barber.media.heroMobile} />}
-    <img src={barber.media.heroDesktop} alt="Herramientas de barbería sobre fondo negro" class="h-full w-full object-cover" fetchpriority="high" />
+    <img src={barber.media.heroDesktop} alt="Herramientas de barbería sobre fondo negro" class="h-full w-full object-cover object-[64%_center] sm:object-center" fetchpriority="high" />
   </picture> : <div class="absolute inset-0 bg-[radial-gradient(circle_at_78%_32%,#3f464d_0,transparent_26%),linear-gradient(128deg,#080a0c_45%,#22272b_100%)]">
     <div class="absolute -right-20 top-16 h-[30rem] w-32 rotate-[24deg] border-x border-white/20 bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
     <div class="absolute right-28 top-10 h-[36rem] w-px rotate-[24deg] bg-white/30"></div>
   </div>}
-  <div class="absolute inset-0 bg-gradient-to-r from-black via-black/75 to-transparent"></div>
-  <div class="relative flex min-h-[35rem] items-end px-1 pb-10 pt-28 sm:min-h-[42rem] sm:pb-16 lg:min-h-[45rem]">
+  <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,.96)_0%,rgba(0,0,0,.72)_48%,rgba(0,0,0,.12)_100%),linear-gradient(0deg,rgba(0,0,0,.8),transparent_55%)]"></div>
+  <div class="relative flex min-h-[calc(100svh-4.5rem)] items-end px-1 pb-10 pt-24 sm:min-h-[42rem] sm:pb-16 lg:min-h-[45rem]">
     <div class="max-w-3xl">
-      <p class="eyebrow">Centro · Montevideo</p>
-      <h1 class="mt-5 text-[clamp(3.3rem,12vw,7.8rem)] leading-[.82] tracking-[-.065em]">Tu próximo<br/><span class="text-zinc-400">corte.</span></h1>
-      <p class="mt-7 max-w-md text-base leading-relaxed text-zinc-300 sm:text-lg">Coordiná con Techno Barber por WhatsApp, directo y sin vueltas.</p>
+      <p class="eyebrow !text-zinc-200">Techno Barber · Centro</p>
+      <h1 class="mt-5 max-w-4xl text-[clamp(2.8rem,10vw,7rem)] leading-[.88] tracking-[-.065em]">Tu próximo corte empieza <span class="text-zinc-400">con un mensaje.</span></h1>
+      <p class="mt-6 max-w-lg text-base leading-relaxed text-zinc-200 sm:text-lg">Consultá disponibilidad en Techno Barber, Centro de Montevideo.</p>
       <div class="mt-7 flex flex-col gap-3 min-[390px]:flex-row">
         <a href={wa} target="_blank" rel="noopener noreferrer" class="button-primary">Reservar turno <span aria-hidden="true" class="ml-3">↗</span></a>
         <a href="/servicios" class="button-secondary">Ver servicios</a>
       </div>
+      <p class="mt-6 flex items-center gap-3 text-sm font-semibold text-zinc-200"><span class="h-px w-8 bg-white/60"></span>18 de Julio 959 · Local 4</p>
     </div>
   </div>
-  <p class="absolute bottom-5 right-5 hidden text-xs font-medium uppercase tracking-[.16em] text-zinc-400 lg:block">18 de Julio 959 · Local 4</p>
 </section>

@@ -1,9 +1,16 @@
 # Estado de la demo comercial
 
-Fecha: 11 de septiembre de 2026.
+Fecha: 16 de septiembre de 2026.
 
 ## Hecho
 
+- Los tres activos conceptuales se trasladaron al `public` servido por Astro: hero de herramientas, imagen ilustrativa del servicio Corte y portada Open Graph. `barber.json` es ahora la única fuente de sus rutas.
+- Hero fotográfico de alto impacto con marca, propuesta, dirección y dos CTA; el recorte móvil prioriza las herramientas y conserva un gradiente de contraste.
+- Corte se presenta como único servicio respaldado, con imagen rotulada «Imagen ilustrativa», acceso contextual a WhatsApp y selección de preferencias; la consulta de otros servicios no crea categorías falsas.
+- Trabajos dejó de ser un bloque vacío: ofrece una composición editorial y un acceso destacado al Instagram oficial, sin simular publicaciones, métricas ni clientes.
+- Nueva sección «Del interés al turno»: explica el recorrido encontrar → elegir → abrir WhatsApp y muestra exactamente el mensaje de Corte que construye el flujo real, identificado como mensaje preparado.
+- Ubicación, cierre de reserva, formulario de Turnos y las páginas interiores se elevaron al mismo sistema visual de superficies, profundidad, escala y jerarquía.
+- El menú móvil se cierra al navegar o pulsar fuera. El CTA persistente conserva espacio inferior reservado en el layout.
 - Dirección visual comercial implementada en negro, blanco y acero: tipografía editorial, composición de gran escala, ritmo de secciones y controles adaptados a móvil.
 - Recorrido breve completo en Home: hero, servicio respaldado, acceso a trabajos reales, confianza verificable, ubicación y cierre de conversión.
 - Cinco páginas revisadas con encabezados y contenido propio; navegación compacta y CTA persistente en móvil.
@@ -23,15 +30,14 @@ Fecha: 11 de septiembre de 2026.
 
 ## Pendientes concretos
 
-- No se encontraron en el repositorio ni en los adjuntos accesibles los tres archivos conceptuales indicados: herramientas para hero, corte en proceso y portada «Techno Barber — Propuesta conceptual — Centro de Montevideo». La demo usa composiciones abstractas en CSS sin atribuirlas al negocio; `barber.json` mantiene `media` vacío y no hay referencias rotas.
-- Cuando estén disponibles, optimizar y guardar esos tres originales en `barber-demo/public/images/techno/`, generar variantes responsive del hero y corte, y configurar la portada como `media.og`. No recortar el texto de la portada.
+- Inspección visual final en navegador real a 360, 390, 430 px y escritorio. El contenedor sigue sin navegador y el registro rechazó Playwright con HTTP 403; las comprobaciones de compilación, estructura y activos sí quedaron completas.
+- El hero reutiliza el mismo WebP optimizado en móvil y escritorio porque es el único original entregado. Si se aprueba un encuadre móvil dedicado, incorporarlo sin reemplazar el original.
 - Inspección visual actual del Instagram/logo y activos reales. No se copiaron publicaciones ni fotografías del negocio.
 - Catálogo completo, precios/duraciones, horarios resueltos y equipo si se consiguen fuentes.
 - Reputación numérica y citas verificables; mientras tanto solo confianza por presencia pública.
-- OG con la portada proporcionada; hoy se omite `og:image` porque ese archivo no estuvo accesible. El título y descripción sí son conceptuales.
-- Capturas y revisión en navegador real quedaron limitadas por el entorno: no había navegador instalado y la descarga de Playwright fue rechazada por el registro (HTTP 403). La revisión programática sí se completó.
+- Definir `SITE_URL` únicamente al crear el nuevo origen HTTPS; hasta entonces canonical, `og:url` y `og:image` se omiten deliberadamente aunque el activo OG ya está preparado.
 - Creación del repo en GitHub, conexión del nuevo Vercel, SITE_URL y protección de acceso. No se hicieron operaciones remotas.
 
 ## Próxima acción
 
-Incorporar los tres activos conceptuales originales y hacer la revisión visual final en un navegador real a 360, 390, 430 px y escritorio. Después, configurar un repositorio/despliegue privado independiente siguiendo `docs/03-arquitectura-y-entrega.md`.
+Hacer la revisión visual final en un navegador real a 360, 390, 430 px y escritorio. Después, configurar un repositorio/despliegue privado independiente y su `SITE_URL` siguiendo `docs/03-arquitectura-y-entrega.md`.
