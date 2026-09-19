@@ -10,7 +10,7 @@ export type Servicio = {
   duracion: number | null;
   detallePrecio?: string;
   descripcion: string;
-  popular: boolean;
+  destacado: boolean;
   imagen?: string;
   alt?: string;
 };

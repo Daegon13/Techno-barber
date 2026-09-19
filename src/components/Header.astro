@@ -1,45 +1,15 @@
 ---
 import barber from "@data/barber.json";
-import { buildBookingMessage, getSafeWhatsAppHref, isExternalHref } from "@lib/whatsapp";
-
-type Props = {
-  currentPath?: string;
-};
-
-const { currentPath = "/" } = Astro.props as Props;
-const wa = getSafeWhatsAppHref(
-  barber.whatsapp,
-  buildBookingMessage(barber.mensajes.whatsappBase),
-  barber.whatsappEsPlaceholder
-);
-const waIsExternal = isExternalHref(wa);
 ---
-
-<header class="fixed inset-x-0 top-0 z-50 border-b border-white/[.07] bg-[#080808]/85 backdrop-blur-xl">
+<header class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#070909]/90 backdrop-blur-xl">
   <div class="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-    <a href="/" aria-label={`Ir al inicio de ${barber.nombre}`} class="group flex min-w-0 items-center gap-3 rounded-lg py-1">
-      <span class="grid h-9 w-9 place-items-center border border-stone-500/50 bg-stone-900 text-[10px] font-bold tracking-[.12em] text-stone-100 transition group-hover:border-amber-200/50">B21</span>
-      <span class="min-w-0">
-        <span class="block truncate text-sm font-bold uppercase tracking-[.14em] text-stone-100 sm:tracking-[.18em]">{barber.nombre}</span>
-        <span class="hidden text-[9px] uppercase tracking-[.25em] text-stone-500 sm:block">Estudio privado de barbería</span>
-      </span>
+    <a href="/" class="flex items-center gap-3 rounded-sm" aria-label="Techno Barber, inicio">
+      <span class="grid h-9 w-9 place-items-center border border-cyan-300/50 text-xs font-black text-cyan-300">TB</span>
+      <span><strong class="block text-sm uppercase tracking-[.16em]">Techno Barber</strong><small class="hidden text-[9px] uppercase tracking-[.22em] text-zinc-500 sm:block">Centro · Montevideo</small></span>
     </a>
-
-    <nav aria-label="Navegación principal" class="hidden items-center gap-7 text-xs font-medium uppercase tracking-[.14em] text-stone-400 md:flex">
-      <a aria-current={currentPath === "/" ? "page" : undefined} class={`transition hover:text-stone-50 ${currentPath === "/" ? "text-stone-50" : ""}`} href="/">Inicio</a>
-      <a aria-current={currentPath === "/servicios" ? "page" : undefined} class={`transition hover:text-stone-50 ${currentPath === "/servicios" ? "text-stone-50" : ""}`} href="/servicios">Servicios</a>
-      <a aria-current={currentPath === "/galeria" ? "page" : undefined} class={`transition hover:text-stone-50 ${currentPath === "/galeria" ? "text-stone-50" : ""}`} href="/galeria">Galería</a>
-      <a aria-current={currentPath === "/ubicacion" ? "page" : undefined} class={`transition hover:text-stone-50 ${currentPath === "/ubicacion" ? "text-stone-50" : ""}`} href="/ubicacion">Ubicación</a>
+    <nav aria-label="Navegación principal" class="hidden gap-7 text-xs font-semibold text-zinc-400 md:flex">
+      <a href="/#servicios" class="hover:text-white">Servicios</a><a href="/#galeria" class="hover:text-white">Trabajos</a><a href="/#reservar" class="hover:text-white">Reservar</a><a href="/#ubicacion" class="hover:text-white">Ubicación</a>
     </nav>
-
-    <a
-      href={wa}
-      target={waIsExternal ? "_blank" : undefined}
-      rel={waIsExternal ? "noopener noreferrer" : undefined}
-      class="inline-flex items-center justify-center bg-stone-100 px-4 py-2.5 text-xs font-bold uppercase tracking-[.08em] text-stone-950 transition hover:bg-amber-100 sm:px-5"
-    >
-      <span class="sm:hidden">{barber.whatsappEsPlaceholder ? "Demo" : "Reservar"}</span>
-      <span class="hidden sm:inline">{barber.whatsappEsPlaceholder ? "Explorar reserva" : barber.ctas.principal}</span>
-    </a>
+    <a href={barber.agendaAuto} target="_blank" rel="noopener noreferrer" class="bg-cyan-300 px-4 py-3 text-xs font-extrabold text-black transition hover:bg-white">Ver turnos</a>
   </div>
 </header>

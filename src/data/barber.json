@@ -1,207 +1,54 @@
 {
-  "nombre": "BLK-21 Studio",
-  "concepto": "Estudio privado de barbería premium en Ciudad Vieja",
+  "nombre": "Techno Barber",
+  "concepto": "Barbería urbana en el Centro de Montevideo",
   "ciudad": "Montevideo",
-  "barrio": "Ciudad Vieja",
-  "direccion": "Juncal 1378 apto 904",
-  "whatsapp": "",
-  "whatsappEsPlaceholder": true,
-  "agendaUrl": "",
-  "agendaEsPlaceholder": true,
-  "ctas": {
-    "principal": "Reservar por WhatsApp",
-    "secundario": "Reservar en agenda online"
-  },
+  "barrio": "Centro",
+  "direccion": "Av. 18 de Julio 959, local 4",
+  "whatsapp": "59897097636",
+  "telefonoVisible": "097 097 636",
+  "instagram": "https://www.instagram.com/techno.barber/",
+  "agendaAuto": "https://technobarber.com/book?mode=auto",
+  "agendaProfesional": "https://technobarber.com/book?mode=barber",
+  "faq": "https://technobarber.com/preguntas-frecuentes",
+  "maps": "https://www.google.com/maps/search/?api=1&query=Av.%2018%20de%20Julio%20959%20local%204%2C%20Montevideo",
+  "waze": "https://www.waze.com/ul?q=Av.%2018%20de%20Julio%20959%20local%204%2C%20Montevideo&navigate=yes",
+  "opiniones": "https://www.google.com/maps/search/?api=1&query=Techno%20Barber%20Montevideo",
   "mensajes": {
-    "whatsappBase": "Hola, quiero reservar en BLK-21 Studio. Me interesa [servicio] con [barbero] para [fecha/hora]."
+    "consulta": "Hola, tengo una consulta sobre los servicios de Techno Barber.",
+    "cursos": "Hola, quiero información sobre los cursos disponibles de Techno Barber.",
+    "referencia": "Hola, quiero consultar por un corte. Tengo una referencia para compartir."
   },
-  "contenido": {
-    "heroEyebrow": "Ciudad Vieja · Montevideo",
-    "heroTitulo": "Tu estilo. Tu momento. Sin apuro.",
-    "heroBajada": "Barbería premium en un estudio privado, con atención personalizada y agenda previa.",
-    "experienciaTitulo": "Más que un corte. Un ritual pensado al detalle.",
-    "experienciaBajada": "Un espacio sobrio, atención uno a uno y el tiempo necesario para lograr un resultado que se sienta propio.",
-    "propuesta": "Una capa de marca y conversión sobre el tráfico que ya generás, sin abandonar tu agenda actual.",
-    "serviciosBajada": "Servicios claros, tiempos estimados y opciones premium para elegir antes de reservar.",
-    "equipoBajada": "Profesionales enfocados en técnica, criterio y terminaciones precisas.",
-    "confianzaBajada": "Una experiencia privada, profesional y coordinada con agenda previa.",
-    "reservaTitulo": "Tu próxima visita, en pocos pasos.",
-    "reservaBajada": "Escribinos por WhatsApp para coordinar directamente o continuá en la agenda online actual.",
-    "ubicacionBajada": "Un estudio privado en el corazón de Ciudad Vieja. Atención exclusivamente con reserva previa.",
-    "ctaFinalTitulo": "Una experiencia propia, sin cambiar lo que ya funciona.",
-    "ctaFinalBajada": "Esta demo muestra cómo podría verse una capa propia de marca y conversión para BLK-21 Studio. La agenda actual puede seguir funcionando mientras una experiencia más clara capta consultas desde redes y Google."
+  "hero": {
+    "eyebrow": "Centro · Montevideo",
+    "titulo": "Tu próximo corte empieza acá.",
+    "subtitulo": "Corte, barba y terminaciones en el Centro. Mirá disponibilidad y reservá en pocos pasos."
   },
-  "capaComercial": {
-    "conversion": {
-      "eyebrow": "Conversión desde redes",
-      "titulo": "Convertí visitas desde Instagram, TikTok y Google en reservas reales.",
-      "bajada": "Una web propia ordena el interés que ya llega, responde dudas antes de reservar y dirige cada visita hacia WhatsApp o la agenda externa.",
-      "nota": "Sin abandonar tu agenda actual.",
-      "beneficios": [
-        { "titulo": "Un destino claro", "texto": "Servicios, equipo, ubicación y propuesta reunidos en una experiencia propia." },
-        { "titulo": "Consultas con intención", "texto": "Menos visitas perdidas y un camino directo hacia WhatsApp o la agenda vigente." },
-        { "titulo": "Marca y señales", "texto": "Más control de marca y una base para medir clics e intención fuera de terceros." }
-      ]
-    },
-    "reputacion": {
-      "eyebrow": "Flujo conceptual de reseñas",
-      "titulo": "La experiencia termina. La confianza sigue creciendo.",
-      "bajada": "Después del servicio, el cliente podría recibir un QR o enlace para dejar su opinión y fortalecer la reputación donde más convenga.",
-      "pasos": [
-        { "numero": "01", "titulo": "Después del corte", "texto": "Se comparte un enlace simple en el momento indicado." },
-        { "numero": "02", "titulo": "Opinión sin fricción", "texto": "El cliente elige Google o la agenda externa para dejar su reseña." },
-        { "numero": "03", "titulo": "Más prueba social", "texto": "Nuevos clientes encuentran más señales de confianza antes de reservar." }
-      ],
-      "nota": "Módulo conceptual: no representa una automatización ni integración activa."
-    },
-    "retencion": {
-      "eyebrow": "Módulo futuro de retención",
-      "titulo": "Tu cliente se va bien, pero vuelve mejor.",
-      "bajada": "Una idea simple: recordar el próximo corte antes de que el cliente te olvide.",
-      "frecuencias": ["21 días", "30 días", "45 días"],
-      "beneficios": [
-        "Recordatorios de retoque según el ritmo de cada cliente.",
-        "Más recurrencia sin depender solamente de publicaciones nuevas.",
-        "Un motivo oportuno para volver antes de perder la forma del corte."
-      ],
-      "nota": "Posibilidad comercial a futuro. Esta demo no envía recordatorios reales."
-    }
-  },
-  "seo": {
-    "title": "BLK-21 Studio — Barbería premium en Ciudad Vieja",
-    "description": "Demo conceptual de BLK-21 Studio: estudio privado de barbería premium en Ciudad Vieja, Montevideo, con reserva rápida y agenda previa."
-  },
-  "avisoDemo": "Demo conceptual no oficial creada como propuesta visual y funcional. No representa ni pertenece al negocio. Las imágenes son recursos conceptuales y los datos de contacto y agenda deben confirmarse antes de publicar.",
   "horarios": [
-    { "dias": "Lunes a viernes", "horas": "10:00 a 20:00" },
-    { "dias": "Sábado", "horas": "9:00 a 18:00" },
+    { "dias": "Lunes a viernes", "horas": "10:00–20:00" },
+    { "dias": "Sábado", "horas": "10:00–15:00" },
     { "dias": "Domingo", "horas": "Cerrado" }
+  ],
+  "servicios": [
+    { "id": "corte", "nombre": "Corte", "precio": 320, "duracion": 30, "descripcion": "Corte y terminaciones adaptadas al estilo que buscás.", "destacado": true, "imagen": "/images/services/corte-fade.png" },
+    { "id": "corte-barba", "nombre": "Corte + Barba", "precio": 420, "duracion": 30, "descripcion": "Una puesta a punto completa en una misma visita.", "destacado": true, "imagen": "/images/services/combo-corte-barba.png" },
+    { "id": "barba", "nombre": "Barba", "precio": 120, "duracion": 30, "descripcion": "Perfilado y terminación para ordenar tu barba.", "destacado": false, "imagen": "/images/services/barba-toalla.png" },
+    { "id": "lavado", "nombre": "Lavado", "precio": 150, "duracion": 30, "descripcion": "Limpieza y cuidado para completar tu servicio.", "destacado": false, "imagen": "/images/services/perfilado-contorno.png" },
+    { "id": "black-mask", "nombre": "Black Mask", "precio": 180, "duracion": 30, "descripcion": "Cuidado facial complementario disponible en agenda.", "destacado": false, "imagen": "/images/services/afeitado-premium.png" }
+  ],
+  "galeria": [
+    { "id": "01", "before": "/images/gallery/01-before.png", "after": "/images/gallery/01-after.png" },
+    { "id": "02", "before": "/images/gallery/02-before.png", "after": "/images/gallery/02-after.png" },
+    { "id": "03", "before": "/images/gallery/03-before.png", "after": "/images/gallery/03-after.png" }
   ],
   "media": {
     "heroDesktop": "/images/hero-desktop.png",
     "heroMobile": "/images/hero-mobile.png",
-    "overlayTexture": "/images/hero/hero-overlay-texture-2048.png",
-    "testimonialsBg": "/images/testimonials-bg.png",
     "location": "/images/location-facade.png",
-    "turnos": "/images/turnos-phone.png",
-    "barbers": {
-      "a": "/images/barbers/barbero-01-editorial.png",
-      "b": "/images/barbers/barbero-02-anonimo.png"
-    },
     "og": "/images/og-cover.png"
   },
-  "galeria": [
-    { "id": "01", "before": "/images/gallery/01-before.png", "after": "/images/gallery/01-after.png" },
-    { "id": "02", "before": "/images/gallery/02-before.png", "after": "/images/gallery/02-after.png" },
-    { "id": "03", "before": "/images/gallery/03-before.png", "after": "/images/gallery/03-after.png" },
-    { "id": "04", "before": "/images/gallery/04-before.png", "after": "/images/gallery/04-after.png" },
-    { "id": "05", "before": "/images/gallery/05-before.png", "after": "/images/gallery/05-after.png" },
-    { "id": "06", "before": "/images/gallery/06-before.png", "after": "/images/gallery/06-after.png" }
-  ],
-  "servicios": [
-    {
-      "id": "corte-cabello",
-      "nombre": "Corte de cabello",
-      "precio": 550,
-      "duracion": 45,
-      "descripcion": "Corte personalizado, terminaciones precisas y styling final.",
-      "popular": true,
-      "imagen": "/images/services/corte-fade.png",
-      "alt": "Imagen conceptual de un corte de cabello premium."
-    },
-    {
-      "id": "corte-barba",
-      "nombre": "Corte + barba",
-      "precio": 650,
-      "duracion": 60,
-      "descripcion": "Servicio combinado de corte, diseño de barba y terminación cuidada.",
-      "popular": true,
-      "imagen": "/images/services/combo-corte-barba.png",
-      "alt": "Imagen conceptual de un servicio combinado de corte y barba."
-    },
-    {
-      "id": "retoque",
-      "nombre": "Retoque",
-      "precio": 350,
-      "duracion": 30,
-      "descripcion": "Mantenimiento de contornos y detalles entre cortes completos.",
-      "popular": true,
-      "imagen": "/images/services/perfilado-contorno.png",
-      "alt": "Imagen conceptual de un retoque de contornos."
-    },
-    {
-      "id": "full-service",
-      "nombre": "Full service",
-      "precio": 700,
-      "duracion": 60,
-      "descripcion": "Experiencia completa de barbería con atención personalizada.",
-      "popular": true,
-      "imagen": "/images/services/afeitado-premium.png",
-      "alt": "Imagen conceptual de una experiencia completa de barbería premium."
-    },
-    {
-      "id": "colorimetria",
-      "nombre": "Colorimetría",
-      "precio": null,
-      "duracion": null,
-      "detallePrecio": "Servicio premium · Consultar",
-      "descripcion": "Diagnóstico y propuesta personalizada según el resultado buscado.",
-      "popular": false,
-      "imagen": "/images/services/corte-fade.png",
-      "alt": "Imagen conceptual para un servicio premium de colorimetría."
-    },
-    {
-      "id": "servicios-vip",
-      "nombre": "Servicios VIP",
-      "precio": null,
-      "duracion": null,
-      "detallePrecio": "Consultar",
-      "descripcion": "Atención privada coordinada según necesidad y disponibilidad.",
-      "popular": false,
-      "imagen": "/images/services/combo-corte-barba.png",
-      "alt": "Imagen conceptual para servicios VIP de barbería."
-    },
-    {
-      "id": "hair-styling",
-      "nombre": "Hair & Styling",
-      "precio": null,
-      "duracion": null,
-      "detallePrecio": "Consultar",
-      "descripcion": "Asesoramiento de imagen, peinado y terminación para ocasiones especiales.",
-      "popular": false,
-      "imagen": "/images/services/perfilado-contorno.png",
-      "alt": "Imagen conceptual para un servicio de hair and styling."
-    }
-  ],
-  "barberos": [
-    {
-      "nombre": "Iván",
-      "especialidad": "Fundador / barbero",
-      "foto": "/images/barbers/barbero-01-editorial.png",
-      "alt": "Retrato conceptual de integrante del equipo de barbería."
-    },
-    {
-      "nombre": "Isac",
-      "especialidad": "Barbero profesional",
-      "foto": "/images/barbers/barbero-02-anonimo.png",
-      "alt": "Retrato conceptual de integrante del equipo de barbería."
-    },
-    {
-      "nombre": "Rodrigo",
-      "especialidad": "Barbero profesional",
-      "foto": "/images/barbers/barbero-01-editorial.png",
-      "alt": "Retrato conceptual de integrante del equipo de barbería."
-    },
-    {
-      "nombre": "Facundo",
-      "especialidad": "Barbero profesional",
-      "foto": "/images/barbers/barbero-02-anonimo.png",
-      "alt": "Retrato conceptual de integrante del equipo de barbería."
-    }
-  ],
-  "branding": {
-    "logoMark": "",
-    "logoWordmark": ""
+  "seo": {
+    "title": "Techno Barber — Barbería en el Centro de Montevideo",
+    "description": "Demo conceptual de Techno Barber: servicios, trabajos, ubicación y acceso directo a su agenda online actual."
   },
-  "testimonios": []
+  "avisoDemo": "Demo conceptual no oficial creada como propuesta comercial. Las imágenes son referencias visuales y no representan trabajos ni el local de Techno Barber. La disponibilidad y los valores finales se confirman en la agenda oficial."
 }

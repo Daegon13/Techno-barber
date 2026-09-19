@@ -1,134 +1,31 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Hero from "@components/Hero.astro";
-import Section from "@components/Section.astro";
-import BarbersSection from "@components/BarbersSection.astro";
 import ServiceCard from "@components/ServiceCard.astro";
-import CommercialLayer from "@components/CommercialLayer.astro";
 import barber from "@data/barber.json";
-import { buildBookingMessage, getSafeAgendaHref, getSafeWhatsAppHref, isExternalHref } from "@lib/whatsapp";
-
-const ctaPrimary = getSafeWhatsAppHref(barber.whatsapp, buildBookingMessage(barber.mensajes.whatsappBase), barber.whatsappEsPlaceholder);
-const ctaAgenda = getSafeAgendaHref(barber.agendaUrl, barber.agendaEsPlaceholder);
-const primaryIsExternal = isExternalHref(ctaPrimary);
-const agendaIsExternal = isExternalHref(ctaAgenda);
-const featured = barber.servicios.filter((service) => service.popular).slice(0, 4);
-const title = barber.seo.title;
-const description = barber.seo.description;
-const experience = [
-  { number: "01", title: "Atención privada", text: "Un turno, un profesional y el foco puesto en vos." },
-  { number: "02", title: "Técnica y criterio", text: "Cada servicio se adapta a tu estilo, rostro y rutina." },
-  { number: "03", title: "Sin esperas", text: "Agenda previa para respetar tu tiempo y el nuestro." }
-];
+import { buildWhatsAppLink } from "@lib/whatsapp";
+const waCourses = buildWhatsAppLink(barber.whatsapp, barber.mensajes.cursos);
+const waReference = buildWhatsAppLink(barber.whatsapp, barber.mensajes.referencia);
 ---
-
-<BaseLayout title={title} description={description}>
+<BaseLayout title={barber.seo.title} description={barber.seo.description}>
   <Hero />
+  <section aria-label="Conveniencia" class="border-y border-white/10 bg-[#0b0e0e]"><div class="mx-auto grid max-w-7xl divide-y divide-white/10 px-5 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:px-8">{[["En el Centro",barber.direccion],["Horarios amplios","Lunes a viernes hasta las 20:00"],["Reserva simple","Elegí la primera hora o tu profesional"]].map(([a,b])=><div class="py-6 sm:px-7"><p class="text-[10px] font-bold uppercase tracking-[.2em] text-cyan-300">{a}</p><p class="mt-2 text-sm text-zinc-300">{b}</p></div>)}</div></section>
 
-  <section class="border-x border-b border-white/10 bg-[#0c0c0b]">
-    <div class="grid divide-y divide-white/10 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-      {[
-        ["Experiencia", "Estudio privado"],
-        ["Modalidad", "Agenda previa"],
-        ["Ubicación", `${barber.barrio}, ${barber.ciudad}`]
-      ].map(([label, value]) => (
-        <div class="px-6 py-5 sm:px-8">
-          <div class="text-[9px] font-bold uppercase tracking-[.2em] text-stone-600">{label}</div>
-          <div class="mt-1 text-sm font-semibold text-stone-200">{value}</div>
-        </div>
-      ))}
-    </div>
-  </section>
+  <section id="servicios" class="scroll-mt-24 px-5 py-20 sm:px-8"><div class="mx-auto max-w-6xl"><p class="eyebrow">Servicios actuales</p><div class="mt-3 grid gap-5 lg:grid-cols-2 lg:items-end"><h2 class="section-title">Lo esencial, claro antes de reservar.</h2><p class="max-w-xl text-zinc-400 lg:justify-self-end">Precios y tiempos públicos, en una lectura rápida. Elegí tu servicio y seguí hacia la agenda actual.</p></div><div class="mt-10">{barber.servicios.map(service => <ServiceCard service={service}/>)}</div><p class="mt-5 text-xs text-zinc-500">Disponibilidad y valores finales se confirman en la agenda.</p></div></section>
 
-  <Section title={barber.contenido.experienciaTitulo} subtitle={barber.contenido.experienciaBajada}>
-    <div class="grid border-y border-white/10 sm:grid-cols-3 sm:divide-x sm:divide-white/10">
-      {experience.map((item) => (
-        <article class="border-b border-white/10 px-1 py-7 last:border-b-0 sm:border-b-0 sm:px-7 sm:py-8">
-          <span class="text-[10px] font-bold tracking-[.2em] text-amber-100/60">{item.number}</span>
-          <h3 class="mt-4 text-lg font-semibold text-stone-100">{item.title}</h3>
-          <p class="mt-2 max-w-xs text-sm leading-relaxed text-stone-500">{item.text}</p>
-        </article>
-      ))}
-    </div>
-  </Section>
+  <section id="galeria" class="scroll-mt-24 bg-[#0b0e0e] px-5 py-20 sm:px-8"><div class="mx-auto max-w-6xl"><div class="grid gap-8 lg:grid-cols-[.8fr_1.2fr]"><div><p class="eyebrow">Inspiración / trabajos</p><h2 class="section-title mt-3">El resultado entra por los ojos.</h2><p class="mt-5 text-zinc-400">Una estructura editorial lista para reemplazar estas referencias por trabajos autorizados del negocio.</p><a href={barber.instagram} target="_blank" rel="noopener noreferrer" class="mt-7 inline-flex border-b border-cyan-300 pb-1 text-sm font-bold">Ver trabajos publicados en Instagram ↗</a></div><div class="grid grid-cols-2 gap-3"><figure class="relative row-span-2 overflow-hidden"><img src={barber.galeria[0].after} alt="Referencia visual conceptual de un corte" class="h-full min-h-96 w-full object-cover"/><figcaption>Referencia visual de la propuesta</figcaption></figure><figure class="relative overflow-hidden"><img src={barber.galeria[1].after} alt="Referencia visual conceptual de barbería" class="h-48 w-full object-cover"/><figcaption>Referencia visual de la propuesta</figcaption></figure><figure class="relative overflow-hidden"><img src={barber.galeria[2].after} alt="Referencia visual conceptual de un corte" class="h-48 w-full object-cover"/><figcaption>Referencia visual de la propuesta</figcaption></figure></div></div>
+    <div class="mt-12 border border-white/10 p-4 sm:p-7"><div class="mb-4 flex items-center justify-between"><h3 class="font-bold">Antes / después</h3><span class="text-[10px] uppercase tracking-wider text-zinc-500">Interacción conceptual</span></div><div class="relative aspect-[16/8] overflow-hidden"><img src={barber.galeria[0].before} alt="Referencia visual antes" class="absolute inset-0 h-full w-full object-cover"/><div id="afterLayer" class="absolute inset-y-0 left-0 w-1/2 overflow-hidden border-r-2 border-cyan-300"><img src={barber.galeria[0].after} alt="Referencia visual después" class="h-full max-w-none object-cover" style="width: calc(100vw - 2.5rem); max-width: 1090px"/></div><input id="compare" aria-label="Comparar antes y después" type="range" min="0" max="100" value="50" class="absolute inset-x-4 bottom-4 accent-cyan-300"/></div></div></div></section>
 
-  <section id="servicios" class="scroll-mt-24 border-y border-white/10 bg-black/20 py-14 sm:py-20">
-    <div class="mb-8 flex flex-col justify-between gap-5 sm:mb-10 sm:flex-row sm:items-end">
-      <div class="max-w-2xl">
-        <span class="block h-px w-10 bg-amber-200/60"></span>
-        <h2 class="mt-3 text-3xl font-semibold tracking-[-.035em] text-stone-50 sm:text-4xl">Servicios destacados.</h2>
-        <p class="mt-3 max-w-xl text-sm leading-relaxed text-stone-400 sm:text-base">{barber.contenido.serviciosBajada}</p>
-      </div>
-      <a href="/servicios" class="text-xs font-bold uppercase tracking-[.14em] text-stone-300 transition hover:text-amber-100">Ver todos <span aria-hidden="true">↗</span></a>
-    </div>
-    <div class="grid gap-4 md:grid-cols-2">
-      {featured.map((service) => (
-        <ServiceCard service={service} brand={barber.nombre} whatsapp={barber.whatsapp} />
-      ))}
-    </div>
-  </section>
+  <section id="reservar" class="scroll-mt-24 px-5 py-20 sm:px-8"><div class="mx-auto max-w-6xl"><p class="eyebrow">Cómo reservar</p><h2 class="section-title mt-3">Tu agenda, tu forma.</h2><div class="mt-10 grid gap-4 md:grid-cols-2"><a href={barber.agendaAuto} target="_blank" rel="noopener noreferrer" class="group border border-white/15 p-7 transition hover:border-cyan-300"><span class="text-xs text-cyan-300">01</span><h3 class="mt-8 text-2xl font-bold">Primera hora disponible</h3><p class="mt-3 text-sm text-zinc-400">La opción directa para encontrar el próximo turno en la agenda real.</p><span class="mt-8 inline-block font-bold">Abrir agenda ↗</span></a><a href={barber.agendaProfesional} target="_blank" rel="noopener noreferrer" class="group border border-white/15 p-7 transition hover:border-cyan-300"><span class="text-xs text-cyan-300">02</span><h3 class="mt-8 text-2xl font-bold">Elegir profesional</h3><p class="mt-3 text-sm text-zinc-400">Consultá la disponibilidad por profesional dentro de la agenda actual.</p><span class="mt-8 inline-block font-bold">Elegir profesional ↗</span></a></div><div class="mt-4 flex flex-col justify-between gap-4 border border-white/10 bg-white/[.03] p-5 sm:flex-row sm:items-center"><p class="text-sm text-zinc-400">¿Querés enviar una referencia o hacer una consulta antes?</p><a href={waReference} target="_blank" rel="noopener noreferrer" class="font-bold text-cyan-300">Enviar por WhatsApp ↗</a></div></div></section>
 
-  <BarbersSection barberos={barber.barberos} />
+  <section class="bg-cyan-300 px-5 py-20 text-black sm:px-8"><div class="mx-auto max-w-6xl"><p class="text-xs font-black uppercase tracking-[.2em]">De una búsqueda a un turno</p><h2 class="mt-4 max-w-3xl text-4xl font-black tracking-[-.04em] sm:text-6xl">Una capa que ordena el interés y lo lleva a la acción.</h2><div class="mt-12 grid gap-px bg-black/20 md:grid-cols-3">{[["01","Te encuentran","En Google, Instagram o una búsqueda local."],["02","Entienden","Servicios, precios, trabajos y ubicación, sin fricción."],["03","Avanzan","Llegan a la agenda o a la consulta correcta."]].map(([n,t,d])=><div class="bg-cyan-300 py-6 md:px-6"><span class="text-xs">{n}</span><h3 class="mt-5 text-xl font-black">{t}</h3><p class="mt-2 text-sm">{d}</p></div>)}</div></div></section>
 
-  <CommercialLayer />
+  <section class="px-5 py-20 sm:px-8"><div class="mx-auto max-w-6xl"><div class="rounded-[2rem] border border-cyan-300/25 bg-cyan-300/[.04] p-7 sm:p-12"><p class="eyebrow">Propuesta · próxima etapa</p><h2 class="section-title mt-3">Módulos propuestos para una próxima etapa.</h2><div class="mt-10 grid gap-8 md:grid-cols-3">{[["QR / reseñas","Facilitar el acceso a opiniones públicas después de la visita."],["Recordatorio de retoque","Proponer un contacto oportuno, sujeto a implementación y consentimiento."],["Métricas de clics","Conocer clics hacia agenda, WhatsApp e Instagram."]].map(([t,d])=><div><span class="block h-px w-8 bg-cyan-300"></span><h3 class="mt-5 text-lg font-bold">{t}</h3><p class="mt-2 text-sm leading-relaxed text-zinc-400">{d}</p><small class="mt-4 block text-[10px] uppercase text-zinc-600">Demo conceptual · no activo</small></div>)}</div></div></div></section>
 
-  <section class="relative overflow-hidden border border-white/10 bg-[#11110f]">
-    <div aria-hidden="true" class="absolute right-0 top-0 h-full w-1/2 bg-[radial-gradient(circle_at_top_right,rgba(177,143,86,.12),transparent_65%)]"></div>
-    <div class="relative grid gap-10 px-6 py-10 sm:px-10 sm:py-14 lg:grid-cols-[1fr_auto] lg:items-center">
-      <div class="max-w-2xl">
-        <div class="text-[10px] font-bold uppercase tracking-[.24em] text-amber-100/70">Reserva demostrativa</div>
-        <h2 class="mt-4 text-3xl font-semibold tracking-[-.04em] text-stone-50 sm:text-4xl">{barber.contenido.reservaTitulo}</h2>
-        <p class="mt-3 max-w-xl text-sm leading-relaxed text-stone-400 sm:text-base">{barber.contenido.reservaBajada}</p>
-      </div>
-      <div class="flex flex-col gap-3 sm:flex-row lg:flex-col">
-        <a href={ctaPrimary} target={primaryIsExternal ? "_blank" : undefined} rel={primaryIsExternal ? "noopener noreferrer" : undefined} class="inline-flex min-h-14 items-center justify-center bg-stone-100 px-7 text-sm font-bold text-stone-950 transition hover:bg-amber-100">
-          {barber.whatsappEsPlaceholder ? "Explorar reserva" : barber.ctas.principal}
-        </a>
-        <a href={ctaAgenda} target={agendaIsExternal ? "_blank" : undefined} rel={agendaIsExternal ? "noopener noreferrer" : undefined} class="inline-flex min-h-14 items-center justify-center border border-white/15 px-7 text-sm font-semibold text-stone-300 transition hover:bg-white/5 hover:text-stone-100">
-          {barber.agendaEsPlaceholder ? "Agenda online a conectar" : barber.ctas.secundario}
-        </a>
-      </div>
-    </div>
-  </section>
+  <section class="bg-[#0b0e0e] px-5 py-20 sm:px-8"><div class="mx-auto grid max-w-6xl gap-10 lg:grid-cols-2 lg:items-center"><div><p class="eyebrow">Academia</p><h2 class="section-title mt-3">Cursos de barbería.</h2><p class="mt-5 max-w-lg text-zinc-400">Techno Barber también comunica cursos. Consultá directamente para conocer la información disponible, sin fechas ni cupos inventados.</p><a href={waCourses} target="_blank" rel="noopener noreferrer" class="mt-8 inline-flex bg-white px-6 py-4 font-extrabold text-black">Consultar cursos por WhatsApp ↗</a></div><div class="border-l border-cyan-300 px-6 py-12"><p class="text-2xl font-bold leading-snug">Técnica, práctica y cultura de barbería en un canal de consulta directo.</p><p class="mt-4 text-xs uppercase tracking-wider text-zinc-500">Información confirmada por WhatsApp</p></div></div></section>
 
-  <section class="py-14 sm:py-20">
-    <div class="grid gap-8 lg:grid-cols-[.75fr_1.25fr] lg:items-stretch">
-      <div class="flex flex-col justify-between">
-        <div>
-          <span class="block h-px w-10 bg-amber-200/60"></span>
-          <h2 class="mt-3 text-3xl font-semibold tracking-[-.035em] text-stone-50 sm:text-4xl">Donde la ciudad baja el ritmo.</h2>
-          <p class="mt-4 max-w-md text-sm leading-relaxed text-stone-400 sm:text-base">{barber.contenido.ubicacionBajada}</p>
-          <p class="mt-5 text-sm font-semibold text-stone-200">{barber.direccion}<br /><span class="font-normal text-stone-500">{barber.barrio} · {barber.ciudad}</span></p>
-        </div>
-        <div class="mt-8 border-t border-white/10 pt-4">
-          {barber.horarios.map((horario) => (
-            <div class="flex justify-between gap-4 py-2 text-xs">
-              <span class="text-stone-500">{horario.dias}</span>
-              <span class="font-semibold text-stone-300">{horario.horas}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div class="relative min-h-72 overflow-hidden border border-white/10 sm:min-h-[430px]">
-        <img src={barber.media.location} alt="Imagen conceptual de la ubicación del estudio" class="absolute inset-0 h-full w-full object-cover grayscale-[35%]" loading="lazy" decoding="async" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <div class="absolute bottom-5 left-5 border border-white/15 bg-black/70 px-4 py-3 text-xs text-stone-300 backdrop-blur">
-          <span class="mr-2 text-amber-100">●</span> Ciudad Vieja, Montevideo
-        </div>
-      </div>
-    </div>
-  </section>
+  <section id="ubicacion" class="scroll-mt-24 px-5 py-20 sm:px-8"><div class="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[.9fr_1.1fr]"><div><p class="eyebrow">Ubicación y reputación</p><h2 class="section-title mt-3">En el Centro, fácil de ubicar.</h2><p class="mt-6 text-xl font-bold">{barber.direccion}</p><p class="mt-1 text-zinc-500">{barber.barrio}, {barber.ciudad}</p><div class="mt-7">{barber.horarios.map(h=><div class="flex justify-between border-b border-white/10 py-3 text-sm"><span class="text-zinc-400">{h.dias}</span><strong>{h.horas}</strong></div>)}</div><div class="mt-7 flex flex-wrap gap-4 text-sm font-bold"><a href={barber.maps} target="_blank" rel="noopener noreferrer" class="text-cyan-300">Google Maps ↗</a><a href={barber.waze} target="_blank" rel="noopener noreferrer">Waze ↗</a><a href={barber.opiniones} target="_blank" rel="noopener noreferrer">Ver opiniones públicas ↗</a></div></div><figure class="relative min-h-96 overflow-hidden"><img src={barber.media.location} alt="Referencia visual conceptual de ubicación urbana" class="absolute inset-0 h-full w-full object-cover grayscale"/><figcaption>Referencia visual de la propuesta · La dirección indicada es real</figcaption></figure></div></section>
 
-  <section class="-mx-4 bg-stone-100 px-6 py-14 text-stone-950 sm:mx-0 sm:px-10 sm:py-16">
-    <div class="flex flex-col justify-between gap-8 lg:flex-row lg:items-center">
-      <div>
-        <div class="text-[10px] font-bold uppercase tracking-[.24em] text-stone-500">Propuesta conceptual · {barber.nombre}</div>
-        <h2 class="mt-3 text-4xl font-semibold tracking-[-.045em] sm:text-5xl">{barber.contenido.ctaFinalTitulo}</h2>
-        <p class="mt-3 text-sm text-stone-600 sm:text-base">{barber.contenido.ctaFinalBajada}</p>
-      </div>
-      <a href={ctaPrimary} target={primaryIsExternal ? "_blank" : undefined} rel={primaryIsExternal ? "noopener noreferrer" : undefined} class="inline-flex min-h-14 items-center justify-center bg-stone-950 px-8 text-sm font-bold text-stone-50 transition hover:bg-stone-800">
-        {barber.whatsappEsPlaceholder ? "Explorar flujo de reserva" : barber.ctas.principal} <span aria-hidden="true" class="ml-3">↗</span>
-      </a>
-    </div>
-  </section>
+  <section class="bg-white px-5 py-16 text-black sm:px-8"><div class="mx-auto flex max-w-6xl flex-col justify-between gap-8 lg:flex-row lg:items-center"><div><p class="text-xs font-black uppercase tracking-[.2em]">La agenda actual, mejor acompañada</p><h2 class="mt-3 text-4xl font-black tracking-[-.04em] sm:text-5xl">Encontrá tu próximo turno.</h2></div><a href={barber.agendaAuto} target="_blank" rel="noopener noreferrer" class="inline-flex min-h-14 items-center justify-center bg-black px-8 font-extrabold text-white">Ver turnos disponibles ↗</a></div></section>
+  <script is:inline>document.getElementById('compare')?.addEventListener('input',e=>{document.getElementById('afterLayer').style.width=e.target.value+'%'})</script>
 </BaseLayout>

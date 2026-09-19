@@ -1,23 +1,10 @@
 ---
 import barber from "@data/barber.json";
 ---
-
-<footer class="border-t border-white/10 bg-[#070706]">
-  <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
-      <div>
-        <div class="text-sm font-bold uppercase tracking-[.18em] text-stone-50">{barber.nombre}</div>
-        <div class="mt-2 text-xs text-stone-400">{barber.concepto}</div>
-        <div class="mt-1 text-xs text-stone-500">{barber.direccion} · {barber.ciudad}</div>
-      </div>
-
-      <div class="text-xs leading-relaxed text-stone-400 sm:text-right">
-        {barber.horarios.map((horario) => (
-          <div>{horario.dias}: {horario.horas}</div>
-        ))}
-      </div>
-    </div>
-
-    <p class="mt-8 max-w-3xl border-t border-white/[.07] pt-6 text-[11px] leading-relaxed text-stone-600">{barber.avisoDemo}</p>
+<footer class="border-t border-white/10 bg-black pb-24 md:pb-0">
+  <div class="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:grid-cols-2 sm:px-6 lg:px-8">
+    <div><p class="font-black uppercase tracking-[.16em]">{barber.nombre}</p><p class="mt-2 text-sm text-zinc-400">{barber.direccion} · {barber.barrio}</p></div>
+    <div class="flex gap-5 text-sm text-zinc-300 sm:justify-end"><a href={barber.instagram} target="_blank" rel="noopener noreferrer">Instagram ↗</a><a href={barber.faq} target="_blank" rel="noopener noreferrer">Preguntas frecuentes ↗</a></div>
+    <p class="border-t border-white/10 pt-5 text-[11px] leading-relaxed text-zinc-500 sm:col-span-2">{barber.avisoDemo}</p>
   </div>
 </footer>
