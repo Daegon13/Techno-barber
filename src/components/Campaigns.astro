@@ -1,0 +1,15 @@
+---
+import barber from "@data/barber.json";
+---
+<section aria-labelledby="campaigns-title" class="border-y border-white/10 bg-[#0b0e0e] px-5 py-16 sm:px-8 sm:py-20">
+  <div class="mx-auto max-w-6xl">
+    <p class="eyebrow">Campañas comerciales</p>
+    <div class="mt-3 grid gap-5 lg:grid-cols-[1fr_.8fr] lg:items-end">
+      <h2 id="campaigns-title" class="section-title">Una vidriera nueva, sin tocar la agenda.</h2>
+      <p class="text-zinc-400">El sitio puede sumar una página o un bloque destacado y mantener intacto el sistema de reservas actual.</p>
+    </div>
+    <div class="mt-10 grid gap-3 md:grid-cols-3">
+      {barber.campanas.map((campaign, index) => <article class="border border-white/10 bg-black/30 p-6"><span class="text-xs font-black text-cyan-300">0{index + 1}</span><h3 class="mt-8 text-xl font-bold">{campaign.tipo}</h3><p class="mt-3 text-sm leading-relaxed text-zinc-400">{campaign.texto}</p><span class="mt-6 inline-block text-[10px] uppercase tracking-[.18em] text-zinc-600">Estructura disponible · contenido a definir</span></article>)}
+    </div>
+  </div>
+</section>

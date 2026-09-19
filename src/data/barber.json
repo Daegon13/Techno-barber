@@ -16,7 +16,10 @@
   "mensajes": {
     "consulta": "Hola, tengo una consulta sobre los servicios de Techno Barber.",
     "cursos": "Hola, quiero información sobre los cursos disponibles de Techno Barber.",
-    "referencia": "Hola, quiero consultar por un corte. Tengo una referencia para compartir."
+    "referencia": "Hola, quiero consultar por un corte. Tengo una referencia para compartir.",
+    "corte": "Hola, quiero reservar un corte en Techno Barber.",
+    "corteBarba": "Hola, quiero reservar corte y barba en Techno Barber.",
+    "barba": "Hola, quiero reservar un servicio de barba en Techno Barber."
   },
   "hero": {
     "eyebrow": "Centro · Montevideo",
@@ -24,21 +27,82 @@
     "subtitulo": "Corte, barba y terminaciones en el Centro. Mirá disponibilidad y reservá en pocos pasos."
   },
   "horarios": [
-    { "dias": "Lunes a viernes", "horas": "10:00–20:00" },
-    { "dias": "Sábado", "horas": "10:00–15:00" },
-    { "dias": "Domingo", "horas": "Cerrado" }
+    {
+      "dias": "Lunes a viernes",
+      "horas": "10:00–20:00"
+    },
+    {
+      "dias": "Sábado",
+      "horas": "10:00–15:00"
+    },
+    {
+      "dias": "Domingo",
+      "horas": "Cerrado"
+    }
   ],
   "servicios": [
-    { "id": "corte", "nombre": "Corte", "precio": 320, "duracion": 30, "descripcion": "Corte y terminaciones adaptadas al estilo que buscás.", "destacado": true, "imagen": "/images/services/corte-fade.png" },
-    { "id": "corte-barba", "nombre": "Corte + Barba", "precio": 420, "duracion": 30, "descripcion": "Una puesta a punto completa en una misma visita.", "destacado": true, "imagen": "/images/services/combo-corte-barba.png" },
-    { "id": "barba", "nombre": "Barba", "precio": 120, "duracion": 30, "descripcion": "Perfilado y terminación para ordenar tu barba.", "destacado": false, "imagen": "/images/services/barba-toalla.png" },
-    { "id": "lavado", "nombre": "Lavado", "precio": 150, "duracion": 30, "descripcion": "Limpieza y cuidado para completar tu servicio.", "destacado": false, "imagen": "/images/services/perfilado-contorno.png" },
-    { "id": "black-mask", "nombre": "Black Mask", "precio": 180, "duracion": 30, "descripcion": "Cuidado facial complementario disponible en agenda.", "destacado": false, "imagen": "/images/services/afeitado-premium.png" }
+    {
+      "id": "corte",
+      "nombre": "Corte",
+      "precio": 320,
+      "duracion": 30,
+      "descripcion": "Corte y terminaciones adaptadas al estilo que buscás.",
+      "destacado": true,
+      "imagen": "/images/services/corte-fade.png"
+    },
+    {
+      "id": "corte-barba",
+      "nombre": "Corte + Barba",
+      "precio": 420,
+      "duracion": 30,
+      "descripcion": "Una puesta a punto completa en una misma visita.",
+      "destacado": true,
+      "imagen": "/images/services/combo-corte-barba.png"
+    },
+    {
+      "id": "barba",
+      "nombre": "Barba",
+      "precio": 120,
+      "duracion": 30,
+      "descripcion": "Perfilado y terminación para ordenar tu barba.",
+      "destacado": false,
+      "imagen": "/images/services/barba-toalla.png"
+    },
+    {
+      "id": "lavado",
+      "nombre": "Lavado",
+      "precio": 150,
+      "duracion": 30,
+      "descripcion": "Limpieza y cuidado para completar tu servicio.",
+      "destacado": false,
+      "imagen": "/images/services/perfilado-contorno.png"
+    },
+    {
+      "id": "black-mask",
+      "nombre": "Black Mask",
+      "precio": 180,
+      "duracion": 30,
+      "descripcion": "Cuidado facial complementario disponible en agenda.",
+      "destacado": false,
+      "imagen": "/images/services/afeitado-premium.png"
+    }
   ],
   "galeria": [
-    { "id": "01", "before": "/images/gallery/01-before.png", "after": "/images/gallery/01-after.png" },
-    { "id": "02", "before": "/images/gallery/02-before.png", "after": "/images/gallery/02-after.png" },
-    { "id": "03", "before": "/images/gallery/03-before.png", "after": "/images/gallery/03-after.png" }
+    {
+      "id": "01",
+      "before": "/images/gallery/01-before.png",
+      "after": "/images/gallery/01-after.png"
+    },
+    {
+      "id": "02",
+      "before": "/images/gallery/02-before.png",
+      "after": "/images/gallery/02-after.png"
+    },
+    {
+      "id": "03",
+      "before": "/images/gallery/03-before.png",
+      "after": "/images/gallery/03-after.png"
+    }
   ],
   "media": {
     "heroDesktop": "/images/hero-desktop.png",
@@ -50,5 +114,61 @@
     "title": "Techno Barber — Barbería en el Centro de Montevideo",
     "description": "Demo conceptual de Techno Barber: servicios, trabajos, ubicación y acceso directo a su agenda online actual."
   },
-  "avisoDemo": "Demo conceptual no oficial creada como propuesta comercial. Las imágenes son referencias visuales y no representan trabajos ni el local de Techno Barber. La disponibilidad y los valores finales se confirman en la agenda oficial."
+  "avisoDemo": "Demo conceptual no oficial creada como propuesta comercial. Las imágenes son referencias visuales y no representan trabajos ni el local de Techno Barber. La disponibilidad y los valores finales se confirman en la agenda oficial.",
+  "propuesta": {
+    "titulo": "Tu agenda ya reserva. Esta propuesta hace que más gente llegue a ella.",
+    "beneficios": [
+      {
+        "titulo": "Marca propia",
+        "texto": "Una experiencia coherente antes de entrar a la agenda, con identidad, servicios y ubicación en un solo lugar."
+      },
+      {
+        "titulo": "Contenido actualizable",
+        "texto": "Una estructura para mantener servicios y trabajos al día sin depender de rehacer la web."
+      },
+      {
+        "titulo": "Campañas",
+        "texto": "Páginas o bloques para cursos, eventos y acciones temporales, sin tocar la agenda principal."
+      },
+      {
+        "titulo": "Medición de intención",
+        "texto": "Eventos preparados para entender qué canales y llamadas a la acción generan interés."
+      }
+    ],
+    "medicion": [
+      "Clics desde Instagram",
+      "Clics a agenda",
+      "Consultas por WhatsApp",
+      "Visitas a cursos"
+    ],
+    "flujo": [
+      "Instagram / Google",
+      "Web propia",
+      "Servicio claro / trabajo / ubicación",
+      "Agenda o WhatsApp"
+    ]
+  },
+  "campanas": [
+    {
+      "tipo": "Cursos de barbería",
+      "texto": "Una página enfocada en explicar la propuesta y derivar consultas al canal correcto."
+    },
+    {
+      "tipo": "Eventos",
+      "texto": "Un bloque destacado para comunicar una actividad especial sin alterar el circuito de reservas."
+    },
+    {
+      "tipo": "Campañas temporales",
+      "texto": "Una pieza con vigencia acotada que puede activarse o retirarse sin tocar la agenda principal."
+    }
+  ],
+  "galeriaDemo": {
+    "titulo": "Así se vería tu vidriera de trabajos",
+    "filtros": [
+      "Cortes",
+      "Barba",
+      "Transformaciones"
+    ],
+    "proximamente": "Próximamente: trabajos reales publicados por el equipo"
+  }
 }
