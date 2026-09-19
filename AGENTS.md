@@ -1,46 +1,79 @@
-# Techno Barber — instrucciones para Codex
+# AGENTS.md
 
-## Alcance y procedencia
+Instrucciones obligatorias para agentes de código que trabajen en este repositorio.
 
-- Adaptación comercial PRIVADA para Techno Barber, Centro de Montevideo.
-- Base obligatoria: Daegon13/Barberia_demo. Conservar Astro + Tailwind + TypeScript, cinco rutas y componentes reutilizados. No generar otro proyecto ni migrar de framework.
-- Aplicación en `barber-demo/`. Ejecutar npm allí, no en la raíz.
-- No modificar ni hacer push al repositorio original. Nunca conectar su proyecto de Vercel ni copiar secretos.
-- El secundario Daegon13/barber-premium-prospect-demo no fue inspeccionado. No atribuirle ventajas ni mezclarlo sin comprobar una mejora concreta.
+## Contexto del proyecto
 
-## Leer primero
+Este repositorio contiene una demo privada de prospección para barberías premium, basada en una plantilla Astro/Tailwind existente. La demo busca mostrar una capa de marca, conversión y retención encima de una agenda externa ya existente.
 
-Leer `docs/00-estado-y-siguiente-paso.md`, `docs/02-fuentes-y-contenido.md` y `docs/03-arquitectura-y-entrega.md`. La auditoría original es histórica; consultar sus detalles cuando haga falta, no repetir toda la investigación ni rehacer correcciones ya verificadas.
+La prioridad es crear una demo visual y comercialmente convincente, no construir un SaaS completo.
 
-## Contenido
+## Objetivo del agente
 
-- Única fuente de contenido publicable: `barber-demo/src/data/barber.json`, con contrato en `src/lib/types.ts` y exportación tipada en `src/data/business.ts`.
-- Datos sin respaldo quedan null/ausentes; arrays vacíos ocultan módulos completos. Nunca inventar precios, duraciones, promociones, barberos, reseñas o reputación.
-- No incluir fotos antiguas como local, equipo o trabajos de Techno Barber. No crear imágenes de supuestos resultados reales.
-- Catálogo inicial prudente: Corte. Más servicios requieren evidencia. `destacado` es una decisión editorial, no una afirmación de popularidad.
-- No publicar horarios hasta resolver la diferencia 19:30/20:00.
-- Fotos y reseñas nuevas deben tener URL de origen registrada. Mantener documentación de procedencia fuera de public.
+Implementar cambios pequeños, seguros y revisables que adapten la plantilla existente a una demo de prospección para una barbería premium.
 
-## Producto
+## Reglas técnicas
 
-- Objetivo: llevar a una consulta de turno por WhatsApp con fricción mínima. No prometer reservas confirmadas ni disponibilidad real.
-- CTA principal: Reservar turno. Secundario: Ver servicios. Acceso persistente móvil.
-- Mantener todas las páginas: Home, Servicios, Galería, Turnos y Ubicación. Equipo condicional.
-- Home: Hero → servicios → trabajos → confianza/reputación verificable → equipo opcional → ubicación → CTA final.
-- WhatsApp funciona sin fecha ni hora. Preferencias opcionales, por servicio; confirmación por el negocio. No agregar campos personales innecesarios.
-- Mensajes centralizados en `src/lib/whatsapp.ts`; número publicado 59897097636. Abrir enlace no implica enviar mensaje. No enviar pruebas al negocio.
+- Mantener Astro + Tailwind + TypeScript.
+- No migrar framework.
+- No agregar backend.
+- No agregar base de datos.
+- No agregar autenticación.
+- No agregar pagos.
+- No agregar dependencias pesadas sin justificación.
+- No cambiar el gestor de paquetes si existe `package-lock.json`.
+- No tocar archivos de build/deploy generados.
+- No agregar archivos binarios nuevos.
+- No commitear capturas, previews, ZIPs, `.vercel`, `dist`, `.astro` ni `node_modules`.
 
-## Técnica y privacidad
+## Archivos que NO deben modificarse ni agregarse
 
-- Preservar lockfile y dependencias salvo necesidad concreta. Mantener salida estática; no backend o calendario ficticio.
-- Scripts cliente procesados por Astro, nunca importar TypeScript con ?url. Query de servicio leída en cliente por id estable.
-- `SITE_URL` debe corresponder únicamente al nuevo origen HTTPS. Sin dominio inventado ni canonical al original.
-- Todas las rutas con noindex, nofollow, noarchive. OG conceptual nuevo cuando exista arte aprobado; no reutilizar arte anterior.
-- Acceso privado se configura en hosting; no anunciarlo activo antes de comprobarlo.
-- Mantener aviso discreto de propuesta independiente. No publicar datos estructurados de sitio oficial.
+No modificar ni versionar:
 
-## Forma de trabajo
+```txt
+.vercel/
+.vercel/output/
+dist/
+.astro/
+node_modules/
+preview.png
+screenshots/
+*.zip
+*.mp4
+*.mov
+*.webm
+```
 
-Trabajar por los dos prompts de continuación. Completar cada etapa autorizada con criterio propio; no pedir confirmación por detalles reversibles. Respetar los puntos de revisión visual que pidió el usuario. Reportar qué quedó hecho, qué sigue pendiente y evidencia de pruebas, sin presentar la base como demo final.
+Si ya existen en el repo, proponer eliminarlos del control de versiones en un patch de limpieza.
 
-Validación mínima: npm run check, npm run build, npm run verify; comprobar enlaces, preselección, datos ausentes y experiencia móvil en la etapa visual. La ausencia de activos reales no autoriza inventarlos.
+## Reglas de diseño y contenido
+
+- No usar fotos reales del negocio sin autorización.
+- No copiar logos reales salvo que el usuario entregue el asset.
+- Usar imágenes genéricas o placeholders existentes.
+- Incluir aviso de demo conceptual no oficial.
+- Mantener `noindex` mientras la demo sea de prospección.
+- No inventar reseñas reales.
+- No afirmar que la demo reemplaza el sistema actual de reservas.
+- Posicionar la demo como capa de marca/conversión encima del sistema actual.
+
+## Reglas de implementación
+
+- Priorizar mobile-first.
+- Centralizar datos editables en `src/data/barber.json` o archivo equivalente.
+- Mantener componentes simples.
+- Evitar duplicar strings de negocio en muchos archivos.
+- Actualizar metadatos SEO y Open Graph, pero con `noindex`.
+- Verificar que no queden referencias visibles a la marca base anterior.
+- Verificar que los CTAs funcionen.
+
+## Checklist antes de cerrar un patch
+
+- `npm run build` pasa.
+- No hay archivos binarios nuevos.
+- No hay cambios en `.vercel/output`, `dist`, `.astro` o `node_modules`.
+- No quedan textos genéricos tipo "Lorem ipsum", "NOIR" o "mock" visibles de forma descuidada.
+- La demo se ve correctamente en mobile.
+- WhatsApp abre con un mensaje razonable.
+- La agenda externa se respeta como opción secundaria o complementaria.
+- El footer incluye aviso de demo conceptual.

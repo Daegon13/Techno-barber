@@ -1,0 +1,64 @@
+---
+import barber from "@data/barber.json";
+import { buildBookingMessage, getSafeWhatsAppHref, isExternalHref } from "@lib/whatsapp";
+
+const { nombre, media } = barber;
+const whatsappUrl = getSafeWhatsAppHref(
+  barber.whatsapp,
+  buildBookingMessage(barber.mensajes.whatsappBase),
+  barber.whatsappEsPlaceholder
+);
+const whatsappIsExternal = isExternalHref(whatsappUrl);
+
+type Props = {
+  title?: string;
+  subtitle?: string;
+};
+
+const {
+  title = barber.contenido.heroTitulo,
+  subtitle = barber.contenido.heroBajada
+} = Astro.props as Props;
+---
+
+<section class="relative -mx-4 min-h-[calc(100svh-72px)] overflow-hidden border-y border-white/10 bg-stone-950 sm:mx-0 sm:min-h-[680px] sm:border lg:min-h-[720px]">
+  <picture class="absolute inset-0 -z-10">
+    <source media="(max-width: 768px)" srcset={media.heroMobile} />
+    <img src={media.heroDesktop} alt="" class="h-full w-full object-cover object-center" loading="eager" fetchpriority="high" decoding="async" />
+  </picture>
+
+  <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-black/20"></div>
+  <div aria-hidden="true" class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/30"></div>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute inset-0 mix-blend-overlay opacity-15"
+    style={`background-image:url(${media.overlayTexture}); background-size: 512px 512px;`}
+  ></div>
+
+  <div class="relative flex min-h-[calc(100svh-72px)] items-end px-6 pb-10 pt-24 sm:min-h-[680px] sm:items-center sm:px-12 sm:py-24 lg:min-h-[720px] lg:px-16">
+    <div class="max-w-2xl">
+      <div class="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[.28em] text-amber-100/80 sm:text-xs">
+        <span class="h-px w-8 bg-amber-200/60"></span>
+        {barber.contenido.heroEyebrow}
+      </div>
+
+      <p class="mt-6 text-xs font-bold uppercase tracking-[.24em] text-stone-300">{nombre} · Estudio privado</p>
+      <h1 class="mt-3 max-w-xl text-5xl font-semibold leading-[.92] tracking-[-.055em] text-stone-50 sm:text-6xl lg:text-7xl">{title}</h1>
+      <p class="mt-5 max-w-lg text-base leading-relaxed text-stone-300 sm:text-lg">{subtitle}</p>
+
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a href={whatsappUrl} target={whatsappIsExternal ? "_blank" : undefined} rel={whatsappIsExternal ? "noopener noreferrer" : undefined} class="inline-flex min-h-14 items-center justify-center bg-stone-100 px-6 text-sm font-bold text-stone-950 transition hover:bg-amber-100">
+          {barber.whatsappEsPlaceholder ? "Explorar reserva" : barber.ctas.principal}
+        </a>
+        <a href="#servicios" class="inline-flex min-h-14 items-center justify-center border border-stone-400/50 bg-black/25 px-6 text-sm font-bold text-stone-100 backdrop-blur-sm transition hover:border-stone-100 hover:bg-white/10">
+          Ver servicios <span aria-hidden="true" class="ml-3">↓</span>
+        </a>
+      </div>
+
+      <div class="mt-7 flex items-center gap-3 text-xs text-stone-400">
+        <span class="h-1.5 w-1.5 rounded-full bg-amber-200"></span>
+        Atención únicamente con agenda previa
+      </div>
+    </div>
+  </div>
+</section>

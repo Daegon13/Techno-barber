@@ -1,0 +1,11 @@
+---
+const { title, subtitle } = Astro.props;
+---
+<section class="py-14 sm:py-20">
+  <div class="mb-8 flex max-w-2xl flex-col gap-3 sm:mb-10">
+    <span class="h-px w-10 bg-amber-200/60"></span>
+    <h2 class="text-3xl font-semibold tracking-[-.035em] text-stone-50 sm:text-4xl">{title}</h2>
+    {subtitle && <p class="max-w-xl text-sm leading-relaxed text-stone-400 sm:text-base">{subtitle}</p>}
+  </div>
+  <slot />
+</section>

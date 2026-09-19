@@ -1,0 +1,44 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import barber from "@data/barber.json";
+
+type GalleryItem = { id: string; before: string; after: string };
+const items = (barber.galeria ?? []) as GalleryItem[];
+
+const title = `Galería — ${barber.nombre}`;
+const description = `Galería conceptual de estilos y terminaciones para la propuesta visual de ${barber.nombre}.`;
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="py-10">
+    <h1 class="text-2xl font-semibold text-zinc-50">Galería</h1>
+    <p class="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-400">Comparaciones visuales conceptuales para presentar estilos y terminaciones. Las imágenes no documentan trabajos reales del negocio.</p>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {items.map((it) => (
+        <article class="rounded-2xl border border-white/10 bg-white/5 overflow-hidden shadow-soft">
+          <div class="grid grid-cols-2">
+            <img
+              src={it.before}
+              alt={`Referencia conceptual antes del resultado ${it.id}`}
+              class="aspect-square w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+            <img
+              src={it.after}
+              alt={`Referencia conceptual después del resultado ${it.id}`}
+              class="aspect-square w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div class="p-4">
+            <div class="text-sm font-semibold text-zinc-100">Resultado {it.id}</div>
+            <div class="mt-1 text-xs text-zinc-500">Referencia visual conceptual</div>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

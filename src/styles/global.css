@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body {
+  min-height: 100%;
+  overflow-x: clip;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
+
+  background:
+    radial-gradient(900px 600px at 85% 5%, rgba(177, 143, 86, .06), transparent 62%),
+    linear-gradient(180deg, #080807 0%, #0d0d0c 55%, #080807 100%);
+}
+
+a, button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* textura ultra sutil sin “ruido” externo */
+.texture {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,.035) 1px, transparent 0);
+  background-size: 18px 18px;
+  opacity: .35;
+  pointer-events: none;
+}
+
+/* focus visible consistente */
+:focus-visible {
+  outline: 2px solid rgba(231, 211, 170, .65);
+  outline-offset: 2px;
+}

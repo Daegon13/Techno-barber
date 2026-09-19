@@ -1,11 +1,33 @@
-**/node_modules/
-**/dist/
-**/.astro/
-**/.vercel/
-**/.sites-runtime/
-**/.env
-**/.env.*
-!**/.env.example
-*.zip
-*.log
+# Dependencies
+node_modules/
+
+# Generated build and framework output
+dist/
+.astro/
+
+# Deployment output
+.vercel/
+
+# Local environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+
+# OS and editor metadata
 .DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local captures, exports, and archives
+screenshots/
+preview.png
+*.zip
+*.mp4
+*.mov
+*.webm

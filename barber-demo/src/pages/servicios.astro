@@ -1,9 +1,0 @@
----
-import BaseLayout from '@layouts/BaseLayout.astro'; import ServiceCard from '@components/ServiceCard.astro'; import barber from '@data/business'; import { buildWhatsAppLink } from '@lib/whatsapp';
-const query = buildWhatsAppLink(barber.whatsapp, 'Hola, quisiera consultar qué servicios ofrecen en Techno Barber y sus precios actuales.');
----
-<BaseLayout title="Servicios — Techno Barber" description="Consultá servicios y disponibilidad con Techno Barber.">
-  <section class="pb-12 pt-14 sm:pt-20"><p class="eyebrow">Qué podés reservar</p><h1 class="mt-4 text-5xl leading-none tracking-[-.05em] sm:text-7xl">Servicios</h1><p class="mt-5 max-w-xl leading-relaxed text-zinc-400">Información prudente y al punto. Los precios y la disponibilidad se consultan directamente con el local.</p></section>
-  <div class="grid gap-5">{barber.servicios.map(s => <ServiceCard service={s} brand={barber.nombre} whatsapp={barber.whatsapp} />)}</div>
-  <aside class="surface my-10 flex flex-col justify-between gap-5 p-6 sm:flex-row sm:items-center sm:p-8"><div><p class="display text-2xl">¿Buscás otro servicio?</p><p class="mt-2 text-sm text-zinc-400">Consultá opciones y precios por WhatsApp.</p></div><a href={query} target="_blank" rel="noopener noreferrer" class="button-primary shrink-0">Consultar por WhatsApp</a></aside>
-</BaseLayout>
