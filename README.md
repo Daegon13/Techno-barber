@@ -1,6 +1,6 @@
-# Barber Premium Prospect Demo
+# Techno Barber — demo comercial privada
 
-Demo privada de prospección para presentar una experiencia digital premium a barberías que ya reciben clientes desde redes sociales, Google y una agenda externa.
+Demo privada de prospección que presenta una capa digital de marca, contenido y conversión para Techno Barber, complementaria a su agenda online actual.
 
 > **Aviso:** este proyecto es una demo conceptual no oficial. No debe publicarse ni presentarse como el sitio real de un negocio sin autorización expresa.
 
@@ -12,8 +12,8 @@ La demo debe comunicar:
 
 - una presencia de marca propia y consistente;
 - rutas claras desde redes y Google hacia una acción de contacto;
-- reserva rápida por WhatsApp;
-- acceso complementario a la agenda externa;
+- consultas contextuales por WhatsApp;
+- acceso directo a las dos modalidades de la agenda externa vigente;
 - ideas de reputación y seguimiento post-servicio;
 - una experiencia mobile-first, estática y ligera.
 
@@ -50,7 +50,7 @@ npm run build    # compilación de producción
 ### Incluido
 
 - adaptación de marca y contenido sobre la base existente;
-- servicios, horarios, equipo y ubicación configurables;
+- servicios, horarios y ubicación centralizados en `src/data/barber.json`;
 - CTA principal a WhatsApp y enlace complementario a agenda externa;
 - secciones conceptuales de experiencia, reputación y retención;
 - metadatos con `noindex` mientras el proyecto sea una demo de prospección;
@@ -59,7 +59,7 @@ npm run build    # compilación de producción
 ### Fuera de alcance
 
 - backend o base de datos;
-- autenticación o panel administrativo;
+- autenticación o panel administrativo real (la ruta `/admin-demo` es una demostración local con `localStorage`);
 - pagos;
 - calendario o automatizaciones reales;
 - integración profunda con proveedores de agenda;

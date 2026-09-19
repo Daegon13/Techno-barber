@@ -26,7 +26,7 @@ const ogUrl = Astro.site ? new URL(og, Astro.site).toString() : og;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
-    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
     {canonical && <link rel="canonical" href={canonical} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -52,7 +52,7 @@ const ogUrl = Astro.site ? new URL(og, Astro.site).toString() : og;
 
     <Header currentPath={url.pathname} />
 
-    <main id="contenido" class="mx-auto w-full max-w-7xl px-4 pb-24 pt-[72px] sm:px-6 lg:px-8">
+    <main id="contenido" class="pt-[72px]">
       <slot />
     </main>
 

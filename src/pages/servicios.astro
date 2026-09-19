@@ -1,27 +1,4 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import barber from "../data/barber.json";
-import ServiceCard from "../components/ServiceCard.astro";
-import BarbersSection from "../components/BarbersSection.astro";
-
-const title = `Servicios premium — ${barber.nombre}`;
-const description = `Conocé los servicios, tiempos y precios de ${barber.nombre}. Reservá por WhatsApp o continuá en la agenda online.`;
+import BaseLayout from '@layouts/BaseLayout.astro'; import ServiceCard from '@components/ServiceCard.astro'; import barber from '@data/barber.json';
 ---
-
-<BaseLayout title={title} description={description}>
-  <section class="py-14 sm:py-20">
-    <div class="mb-8 flex max-w-2xl flex-col gap-3 sm:mb-10">
-      <span class="h-px w-10 bg-amber-200/60"></span>
-      <h1 class="text-3xl font-semibold tracking-[-.035em] text-stone-50 sm:text-4xl">Servicios</h1>
-      <p class="max-w-xl text-sm leading-relaxed text-stone-400 sm:text-base">{barber.contenido.serviciosBajada}</p>
-      <p class="text-xs leading-relaxed text-stone-600">Los servicios con precio o duración “a coordinar” requieren una consulta previa; no representan un error ni una reserva confirmada.</p>
-    </div>
-    <div class="grid md:grid-cols-2 gap-4">
-      {barber.servicios.map((service) => (
-        <ServiceCard service={service} brand={barber.nombre} whatsapp={barber.whatsapp} />
-      ))}
-    </div>
-
-    <BarbersSection barberos={barber.barberos} />
-  </section>
-</BaseLayout>
+<BaseLayout title={`Servicios — ${barber.nombre}`} description="Servicios, precios y duración publicados por Techno Barber."><section class="mx-auto max-w-5xl px-5 py-20"><p class="eyebrow">Techno Barber</p><h1 class="section-title mt-3">Servicios.</h1><div class="mt-12">{barber.servicios.map(service=><ServiceCard service={service}/>)}</div><p class="mt-6 text-xs text-zinc-500">Disponibilidad y valores finales se confirman en la agenda.</p></section></BaseLayout>

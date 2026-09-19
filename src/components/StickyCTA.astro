@@ -1,21 +1,7 @@
 ---
 import barber from "@data/barber.json";
-import { buildBookingMessage, getSafeAgendaHref, getSafeWhatsAppHref, isExternalHref } from "@lib/whatsapp";
-
-const whatsappHref = getSafeWhatsAppHref(barber.whatsapp, buildBookingMessage(barber.mensajes.whatsappBase), barber.whatsappEsPlaceholder);
-const agendaHref = getSafeAgendaHref(barber.agendaUrl, barber.agendaEsPlaceholder);
-const whatsappIsExternal = isExternalHref(whatsappHref);
-const agendaIsExternal = isExternalHref(agendaHref);
+import { buildWhatsAppLink } from "@lib/whatsapp";
 ---
-<div class="fixed bottom-0 inset-x-0 z-50 md:hidden">
-  <div class="mx-auto max-w-6xl px-4 pb-4">
-    <div class="flex gap-2 border border-white/10 bg-[#0b0b0a]/95 p-2 shadow-2xl backdrop-blur-xl">
-      <a href={agendaHref} target={agendaIsExternal ? "_blank" : undefined} rel={agendaIsExternal ? "noopener noreferrer" : undefined} class="flex-1 border border-white/15 px-3 py-3 text-center text-xs font-semibold text-stone-300 transition hover:bg-white/10">
-        {barber.agendaEsPlaceholder ? "Ver flujo" : "Agenda online"}
-      </a>
-      <a href={whatsappHref} target={whatsappIsExternal ? "_blank" : undefined} rel={whatsappIsExternal ? "noopener noreferrer" : undefined} class="flex-[1.4] bg-stone-100 px-3 py-3 text-center text-xs font-bold text-stone-950 transition hover:bg-amber-100">
-        {barber.whatsappEsPlaceholder ? "Simular consulta" : barber.ctas.principal}
-      </a>
-    </div>
-  </div>
+<div class="fixed inset-x-0 bottom-0 z-50 border-t border-white/10 bg-black/95 p-3 backdrop-blur md:hidden">
+  <div class="mx-auto flex max-w-md gap-2"><a class="flex-1 bg-cyan-300 px-4 py-3 text-center text-sm font-extrabold text-black" href={barber.agendaAuto} target="_blank" rel="noopener noreferrer">Turnos</a><a class="flex-1 border border-white/20 px-4 py-3 text-center text-sm font-bold" href={buildWhatsAppLink(barber.whatsapp, barber.mensajes.consulta)} target="_blank" rel="noopener noreferrer">WhatsApp</a></div>
 </div>
